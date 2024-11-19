@@ -33,12 +33,18 @@ return {
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
     'R-nvim/cmp-r',
+    'hrsh7th/cmp-nvim-lua',
+    'hrsh7th/cmp-buffer',
+    'SergioRibera/cmp-dotenv',
+    'roobert/tailwindcss-colorizer-cmp.nvim',
   },
   config = function()
     -- See `:help cmp`
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
     luasnip.config.setup {}
+    local tailwindcss_colorizer_cmp = require 'tailwindcss-colorizer-cmp'
+    tailwindcss_colorizer_cmp.setup()
 
     cmp.setup {
       snippet = {
@@ -105,9 +111,13 @@ return {
         },
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
+        { name = 'buffer' },
+        { name = 'nvim_lua' },
         { name = 'path' },
         { name = 'cmp-r' },
+        { name = 'dotenv' },
       },
+      formatting = tailwindcss_colorizer_cmp.formatter,
     }
   end,
 }
