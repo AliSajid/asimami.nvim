@@ -6,14 +6,12 @@
 -- be extended to other languages as well. That's why it's called
 -- kickstart.nvim and not kitchen-sink.nvim ;)
 
-vim.pack.add {
-  'https://github.com/mfussenegger/nvim-dap',
-  'https://github.com/rcarriga/nvim-dap-ui',
-  'https://github.com/nvim-neotest/nvim-nio',
-  'https://github.com/mason-org/mason.nvim',
-  'https://github.com/jay-babu/mason-nvim-dap.nvim',
-  'https://github.com/leoluz/nvim-dap-go',
-}
+return {
+  [1] = 'mfussenegger/nvim-dap',
+
+  dependencies = {
+    -- Creates a beautiful debugger UI
+    'rcarriga/nvim-dap-ui',
 
 -- Basic debugging keymaps, feel free to change to your liking!
 vim.keymap.set('n', '<F5>', function() require('dap').continue() end, { desc = 'Debug: Start/Continue' })
@@ -28,10 +26,35 @@ vim.keymap.set('n', '<F7>', function() require('dapui').toggle() end, { desc = '
 local dap = require 'dap'
 local dapui = require 'dapui'
 
-require('mason-nvim-dap').setup {
-  -- Makes a best effort to setup the various debuggers with
-  -- reasonable debug configurations
-  automatic_installation = true,
+    -- Add your own debuggers here
+    'leoluz/nvim-dap-go', -- Go debugger
+    'mfussenegger/nvim-dap-python', -- Python debugger
+  },
+  keys = function(_, keys)
+    local dap = require 'dap'
+    local dapui = require 'dapui'
+    return {
+      -- Basic debugging keymaps, feel free to change to your liking!
+      { '<F5>', dap.continue, desc = 'Debug: Start/Continue' },
+      { '<F1>', dap.step_into, desc = 'Debug: Step Into' },
+      { '<F2>', dap.step_over, desc = 'Debug: Step Over' },
+      { '<F3>', dap.step_out, desc = 'Debug: Step Out' },
+      { '<leader>b', dap.toggle_breakpoint, desc = 'Debug: Toggle Breakpoint' },
+      {
+        '<leader>B',
+        function()
+          dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
+        end,
+        desc = 'Debug: Set Breakpoint',
+      },
+      -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
+      { '<F7>', dapui.toggle, desc = 'Debug: See last session result.' },
+      unpack(keys),
+    }
+  end,
+  config = function()
+    local dap = require 'dap'
+    local dapui = require 'dapui'
 
   -- You can provide additional configuration to the handlers,
   -- see mason-nvim-dap README for more information
@@ -85,11 +108,15 @@ dap.listeners.after.event_initialized['dapui_config'] = dapui.open
 dap.listeners.before.event_terminated['dapui_config'] = dapui.close
 dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
--- Install golang specific config
-require('dap-go').setup {
-  delve = {
-    -- On Windows delve must be run attached or it crashes.
-    -- See https://github.com/leoluz/nvim-dap-go/blob/main/README.md#configuring
-    detached = vim.fn.has 'win32' == 0,
-  },
+    -- Install golang specific config
+    require('dap-go').setup {
+      delve = {
+        -- On Windows delve must be run attached or it crashes.
+        -- See https://github.com/leoluz/nvim-dap-go/blob/main/README.md#configuring
+        detached = vim.fn.has 'win32' == 0,
+      },
+    }
+    local python_path = '~/.local/share/nvim/mason/packages/debugpy/venv/bin/python'
+    require('dap-python').setup(python_path)
+  end,
 }
