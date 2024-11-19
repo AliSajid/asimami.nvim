@@ -7,9 +7,8 @@
 -- kickstart.nvim and not kitchen-sink.nvim ;)
 
 return {
-  -- NOTE: Yes, you can install new plugins here!
-  'mfussenegger/nvim-dap',
-  -- NOTE: And you can specify dependencies as well
+  [1] = 'mfussenegger/nvim-dap',
+
   dependencies = {
     -- Creates a beautiful debugger UI
     'rcarriga/nvim-dap-ui',
@@ -22,7 +21,8 @@ return {
     'jay-babu/mason-nvim-dap.nvim',
 
     -- Add your own debuggers here
-    'leoluz/nvim-dap-go',
+    'leoluz/nvim-dap-go', -- Go debugger
+    'mfussenegger/nvim-dap-python', -- Python debugger
   },
   keys = function(_, keys)
     local dap = require 'dap'
@@ -101,5 +101,7 @@ return {
         detached = vim.fn.has 'win32' == 0,
       },
     }
+    local python_path = '~/.local/share/nvim/mason/packages/debugpy/venv/bin/python'
+    require('dap-python').setup(python_path)
   end,
 }
