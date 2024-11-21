@@ -117,7 +117,6 @@ return {
         { name = 'cmp-r' },
         { name = 'dotenv' },
       },
-      formatting = tailwindcss_colorizer_cmp.formatter,
     }
   end,
 }
