@@ -11,10 +11,10 @@ return {
       lint.linters_by_ft['zsh'] = { 'shellcheck' }
       lint.linters_by_ft['lua'] = { 'selene', 'luacheck' }
       lint.linters_by_ft['python'] = { 'flake8', 'mypy' }
-      lint.linters_by_ft['r'] = { 'lintr' }
-      lint.linters_by_ft['quarto'] = { 'lintr' }
-      lint.linters_by_ft['rmd'] = { 'lintr' }
-      lint.linters_by_ft['rust'] = { 'cargo' }
+      -- lint.linters_by_ft['r'] = { 'lintr' }
+      -- lint.linters_by_ft['quarto'] = { 'lintr' }
+      -- lint.linters_by_ft['rmd'] = { 'lintr' }
+      lint.linters_by_ft['rust'] = { 'clippy' }
       lint.linters_by_ft['typescript'] = { 'eslint' }
       lint.linters_by_ft['javascript'] = { 'eslint' }
       lint.linters_by_ft['css'] = { 'stylelint' }
