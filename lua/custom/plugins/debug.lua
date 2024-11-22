@@ -29,11 +29,41 @@ return {
     local dapui = require 'dapui'
     return {
       -- Basic debugging keymaps, feel free to change to your liking!
-      { '<F5>', dap.continue, desc = 'Debug: Start/Continue' },
-      { '<F1>', dap.step_into, desc = 'Debug: Step Into' },
-      { '<F2>', dap.step_over, desc = 'Debug: Step Over' },
-      { '<F3>', dap.step_out, desc = 'Debug: Step Out' },
-      { '<leader>b', dap.toggle_breakpoint, desc = 'Debug: Toggle Breakpoint' },
+      {
+        '<F5>',
+        function()
+          dap.continue()
+        end,
+        desc = 'Debug: Start/Continue',
+      },
+      {
+        '<F6>',
+        function()
+          dap.step_over()
+        end,
+        desc = 'Debug: Step Over',
+      },
+      {
+        '<F7>',
+        function()
+          dap.step_into()
+        end,
+        desc = 'Debug: Step Into',
+      },
+      {
+        '<F8>',
+        function()
+          dap.step_out()
+        end,
+        desc = 'Debug: Step Out',
+      },
+      {
+        '<leader>b',
+        function()
+          dap.toggle_breakpoint()
+        end,
+        desc = 'Debug: Toggle Breakpoint',
+      },
       {
         '<leader>B',
         function()
@@ -41,8 +71,15 @@ return {
         end,
         desc = 'Debug: Set Breakpoint',
       },
+
       -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
-      { '<F7>', dapui.toggle, desc = 'Debug: See last session result.' },
+      {
+        '<F7>',
+        function()
+          dapui.toggle()
+        end,
+        desc = 'Debug: See last session result.',
+      },
       unpack(keys),
     }
   end,
