@@ -1,4 +1,4 @@
-local map = map
+local map = vim.keymap.set
 
 -- No need to use shift key for command mode
 map({ 'n', 'v' }, ';', ':', { nowait = true })
