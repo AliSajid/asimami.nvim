@@ -1,4 +1,4 @@
-M = {
+local M = {
   ensure_installed = {
     'bash',
     'c',
@@ -12,6 +12,7 @@ M = {
     'gitcommit',
     'gitignore',
     'go',
+    'gotmpl',
     'haskell',
     'hcl',
     'html',
