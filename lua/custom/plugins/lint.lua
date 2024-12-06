@@ -7,7 +7,7 @@ return {
       local lint = require 'lint'
       lint.linters_by_ft = lint.linters_by_ft or {}
 
-      lint.linters_by_ft['markdown'] = { 'markdownlint_cli2', 'vale' }
+      lint.linters_by_ft['markdown'] = { 'markdownlint-cli2' }
       lint.linters_by_ft['zsh'] = { 'shellcheck' }
       lint.linters_by_ft['lua'] = { 'selene', 'luacheck' }
       lint.linters_by_ft['python'] = { 'flake8', 'mypy' }
