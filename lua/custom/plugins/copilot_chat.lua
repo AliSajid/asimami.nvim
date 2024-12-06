@@ -1,6 +1,6 @@
 return {
   [1] = 'CopilotC-Nvim/CopilotChat.nvim',
-  branch = 'canary',
+  branch = 'main',
   dependencies = {
     { 'zbirenbaum/copilot.vim' }, -- or github/copilot.vim
     { 'nvim-lua/plenary.nvim' }, -- for curl, log wrapper
@@ -121,7 +121,7 @@ return {
     -- Debug
     { [1] = '<leader>ccd', [2] = '<cmd>CopilotChatDebugInfo<cr>', desc = 'CopilotChat - Debug Info' },
     -- Fix the issue with diagnostic
-    { [1] = '<leader>ccf', [2] = '<cmd>CopilotChatFixDiagnostic<cr>', desc = 'CopilotChat - Fix Diagnostic' },
+    { [1] = '<leader>ccf', [2] = '<cmd>CopilotChatFix<cr>', desc = 'CopilotChat - Fix Diagnostic' },
     -- Clear buffer and chat history
     { [1] = '<leader>ccl', [2] = '<cmd>CopilotChatReset<cr>', desc = 'CopilotChat - Clear buffer and chat history' },
     -- Toggle Copilot Chat Vsplit
