@@ -2,16 +2,16 @@ local lspoverrides = require 'custom.overrides.lspconfig'
 
 return {
   -- Main LSP Configuration
-  'neovim/nvim-lspconfig',
+  [1] = 'neovim/nvim-lspconfig',
   dependencies = {
     -- Automatically install LSPs and related tools to stdpath for Neovim
-    { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
+    { [1] = 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
 
     -- Useful status updates for LSP.
     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-    { 'j-hui/fidget.nvim', opts = {} },
+    { [1] = 'j-hui/fidget.nvim', opts = {} },
 
     -- Allows extra capabilities provided by nvim-cmp
     'hrsh7th/cmp-nvim-lsp',
@@ -21,7 +21,23 @@ return {
 
     -- Schema store for schema support
     'b0o/schemastore.nvim',
-  },
+
+    -- Lua LSP support
+    {
+      [1] = 'folke/lazydev.nvim',
+      ft = 'lua', -- only load on lua files
+      dependencies = {
+        { [1] = 'Bilal2453/luvit-meta', lazy = true }, -- optional `vim.uv` typings
+      },
+      opts = {
+        library = {
+          -- See the configuration section for more details
+          -- Load luvit types when the `vim.uv` word is found
+          { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+          { path = 'luvit-meta/library', words = { 'vim%.uv' } },
+        },
+      },
+    },
   config = function()
     --  This function gets run when an LSP attaches to a particular buffer.
     --    That is to say, every time a new file is opened that is associated with

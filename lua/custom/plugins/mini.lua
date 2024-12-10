@@ -1,5 +1,5 @@
 return {
-  'echasnovski/mini.nvim',
+  [1] = 'echasnovski/mini.nvim',
   config = function()
     -- Better Around/Inside textobjects
     --

@@ -4,7 +4,7 @@
 
 return {
   {
-    'lewis6991/gitsigns.nvim',
+    [1] = 'lewis6991/gitsigns.nvim',
     opts = {
       signs = {
         add = { text = '+' },
@@ -25,7 +25,7 @@ return {
         -- Navigation
         map('n', ']c', function()
           if vim.wo.diff then
-            vim.cmd.normal { ']c', bang = true }
+            vim.cmd.normal { [1] = ']c', bang = true }
           else
             gitsigns.nav_hunk 'next'
           end
@@ -33,7 +33,7 @@ return {
 
         map('n', '[c', function()
           if vim.wo.diff then
-            vim.cmd.normal { '[c', bang = true }
+            vim.cmd.normal { [1] = '[c', bang = true }
           else
             gitsigns.nav_hunk 'prev'
           end

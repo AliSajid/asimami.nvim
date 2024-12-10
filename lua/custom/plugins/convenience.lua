@@ -28,6 +28,7 @@ return {
   },
   {
     [1] = 'Fildo7525/pretty_hover',
+    event = 'LspAttach',
     keys = { '<leader>k' },
     config = true,
   },
@@ -85,5 +86,4 @@ return {
     },
     opts = {},
   },
-  { [1] = 'ofirgall/open.nvim', requires = 'nvim-lua/plenary.nvim', opts = {} },
 }
