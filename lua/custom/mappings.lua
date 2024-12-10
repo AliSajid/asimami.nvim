@@ -6,21 +6,6 @@ map({ 'n', 'v' }, ';', ':', { nowait = true })
 -- Easy indenting in visual mode
 map('v', '>', '>gv', { desc = 'indent' })
 
--- Mapping for httpgd
-map(
-  { 'n', 'v' },
-  '<LocalLeader>gd',
-  "<cmd>lua require('r.send').cmd('tryCatch(httpgd::hgd_browse(),error=function(e) {httpgd::hgd();httpgd::hgd_browse()})')<CR>",
-  { desc = 'open httpgd' }
-)
-
-map(
-  'n',
-  '<LocalLeader>pr',
-  '<cmd>lua require(\'r.send\').cmd(\'params <- lapply(knitr::knit_params(readLines("\' .. vim.fn.expand("%:p") .. \'")), function(x) x$value); class(params) <- "knit_param_list"\')<CR>',
-  { desc = 'Source params' }
-)
-
 -- Mapping for the cheatsheet
 map('n', '<LocalLeader>ch', '<cmd>Cheatsheet<CR>')
 

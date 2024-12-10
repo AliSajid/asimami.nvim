@@ -4,20 +4,6 @@ return { -- Highlight, edit, and navigate code
   dependencies = {
     { [1] = 'nvim-treesitter/nvim-treesitter-context', opts = treesitter.treesitter_context or {}, event = 'BufReadPost' },
     -- { [1] = 'nvim-treesitter/nvim-treesitter-textobjects', opts = treesitter.treesitter_textobjects or {} },
-    {
-      [1] = 'IndianBoy42/tree-sitter-just',
-      opts = treesitter.treesitter_just or {},
-    },
-    {
-      [1] = 'Wansmer/treesj',
-      keys = { { [1] = '<leader>m', '<CMD>TSJToggle<CR>', desc = 'Toggle Treesitter Join' } },
-      cmd = { 'TSJToggle' },
-      opts = { use_default_keymaps = false },
-      init = function()
-        local map = vim.keymap.set
-        map('n', '<leader>tt', '<CMD>TSJToggle<CR>', { desc = 'Toggle Treesitter Join/Split' })
-      end,
-    },
   },
   build = ':TSUpdate',
   opts = {
