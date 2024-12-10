@@ -36,8 +36,12 @@ return {
           { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
           { path = 'luvit-meta/library', words = { 'vim%.uv' } },
         },
+        enabled = function(root_dir)
+          return not vim.uv.fs_stat(root_dir .. 'selene.toml')
+        end,
       },
     },
+  },
   config = function()
     --  This function gets run when an LSP attaches to a particular buffer.
     --    That is to say, every time a new file is opened that is associated with
