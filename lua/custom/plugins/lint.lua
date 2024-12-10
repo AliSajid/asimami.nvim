@@ -9,7 +9,7 @@ return {
 
       lint.linters_by_ft['markdown'] = { 'markdownlint-cli2' }
       lint.linters_by_ft['zsh'] = { 'shellcheck' }
-      lint.linters_by_ft['lua'] = { 'selene', 'luacheck' }
+      lint.linters_by_ft['lua'] = { 'selene' }
       lint.linters_by_ft['python'] = { 'flake8', 'mypy' }
       -- lint.linters_by_ft['r'] = { 'lintr' }
       -- lint.linters_by_ft['quarto'] = { 'lintr' }
