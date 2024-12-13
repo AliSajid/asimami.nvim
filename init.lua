@@ -10,6 +10,9 @@ require 'custom.options'
 -- Load the custom keybind mappings
 require 'custom.mappings'
 
+-- load custom autocommands
+require 'custom.autocommands'
+
 -- Load the custom filetypes
 local filetypes = require 'custom.filetypes'
 local filetype_overrides = require 'custom.overrides.filetypes'
