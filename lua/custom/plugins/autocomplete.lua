@@ -36,6 +36,8 @@ return {
     'hrsh7th/cmp-nvim-lua',
     'hrsh7th/cmp-buffer',
     'SergioRibera/cmp-dotenv',
+    'Dynge/gitmoji.nvim',
+    'hrsh7th/cmp-emoji',
   },
   config = function()
     -- See `:help cmp`
@@ -113,6 +115,8 @@ return {
         { name = 'path' },
         { name = 'cmp_r' },
         { name = 'dotenv' },
+        { name = 'gitmoji' },
+        { name = 'emoji' },
       },
     }
   end,
