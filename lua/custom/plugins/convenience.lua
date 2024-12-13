@@ -99,4 +99,10 @@ return {
       --- then please see the API below for options
     },
   },
+  {
+    [1] = 'lukas-reineke/virt-column.nvim',
+    opts = {
+      virtcolumn = '+1,80,120',
+    },
+  },
 }
