@@ -101,4 +101,7 @@ return {
       virtcolumn = '+1,80,120',
     },
   },
+  {
+    [1] = 'tpope/vim-repeat',
+  },
 }

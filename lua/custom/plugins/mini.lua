@@ -30,5 +30,11 @@ return {
     statusline.section_location = function()
       return '%2l:%-2v'
     end
+
+    require('mini.ai').setup()
+
+    require('mini.extra').setup()
+
+    require('mini.tabline').setup()
   end,
 }

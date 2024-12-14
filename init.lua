@@ -74,23 +74,33 @@ require('lazy').setup({
   -- after the plugin has been loaded:
   --  config = function() ... end
 
-  -- Minimal number of screen lines to keep above and below the cursor.
-  vim.o.scrolloff = 10
+  { -- Useful plugin to show you pending keybinds.
+    [1] = 'folke/which-key.nvim',
+    event = 'VimEnter', -- Sets the loading event to 'VimEnter'
+    config = function() -- This is the function that runs, AFTER loading
+      require('which-key').setup()
 
-  -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
-  -- instead raise a dialog asking if you wish to save the current file(s)
-  -- See `:help 'confirm'`
-  vim.o.confirm = true
-end
+      -- Document existing key chains
+      require('which-key').add {
+        { [1] = '<leader>c', group = '[C]ode' },
+        { [1] = '<leader>d', group = '[D]ocument' },
+        { [1] = '<leader>r', group = '[R]ename' },
+        { [1] = '<leader>s', group = '[S]earch' },
+        { [1] = '<leader>w', group = '[W]orkspace' },
+        { [1] = '<leader>t', group = '[T]oggle' },
+        { [1] = '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+      }
+    end,
+  },
 
   { -- Autoformat
-    'stevearc/conform.nvim',
+    [1] = 'stevearc/conform.nvim',
     event = { 'BufWritePre' },
     cmd = { 'ConformInfo' },
     keys = {
       {
-        '<leader>f',
-        function()
+        [1] = '<leader>f',
+        [2] = function()
           require('conform').format { async = true, lsp_fallback = true }
         end,
         mode = '',
@@ -111,12 +121,13 @@ end
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        clojure = { 'cljfmt' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
+        python = { 'isort', 'black' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
-        -- gohtmltmpl = "prettierd"
+        gohtmltmpl = 'prettierd',
       },
     },
   }

@@ -25,6 +25,7 @@ return {
       lint.linters_by_ft['yaml'] = { 'yamllint', 'cfn_lint' }
       lint.linters_by_ft['latex'] = { 'chktex' }
       lint.linters_by_ft['bash'] = { 'shellcheck' }
+      lint.linters_by_ft['clojure'] = { 'clj-kondo' }
 
       -- Create autocommand which carries out the actual linting
       -- on the specified events.

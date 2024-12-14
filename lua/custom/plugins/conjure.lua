@@ -11,7 +11,7 @@ return {
     end,
 
     -- Optional cmp-conjure integration
-    dependencies = { 'PaterJason/cmp-conjure', 'Grazfather/sexp.nvim' },
+    dependencies = { 'PaterJason/cmp-conjure', 'Grazfather/sexp.nvim', 'tpope/vim-repeat' },
   },
   {
     [1] = 'PaterJason/cmp-conjure',
