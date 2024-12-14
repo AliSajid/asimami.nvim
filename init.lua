@@ -75,32 +75,32 @@ require('lazy').setup({
   --  config = function() ... end
 
   { -- Useful plugin to show you pending keybinds.
-    'folke/which-key.nvim',
+    [1] = 'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     config = function() -- This is the function that runs, AFTER loading
       require('which-key').setup()
 
       -- Document existing key chains
       require('which-key').add {
-        { '<leader>c', group = '[C]ode' },
-        { '<leader>d', group = '[D]ocument' },
-        { '<leader>r', group = '[R]ename' },
-        { '<leader>s', group = '[S]earch' },
-        { '<leader>w', group = '[W]orkspace' },
-        { '<leader>t', group = '[T]oggle' },
-        { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { [1] = '<leader>c', group = '[C]ode' },
+        { [1] = '<leader>d', group = '[D]ocument' },
+        { [1] = '<leader>r', group = '[R]ename' },
+        { [1] = '<leader>s', group = '[S]earch' },
+        { [1] = '<leader>w', group = '[W]orkspace' },
+        { [1] = '<leader>t', group = '[T]oggle' },
+        { [1] = '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
       }
     end,
   },
 
   { -- Autoformat
-    'stevearc/conform.nvim',
+    [1] = 'stevearc/conform.nvim',
     event = { 'BufWritePre' },
     cmd = { 'ConformInfo' },
     keys = {
       {
-        '<leader>f',
-        function()
+        [1] = '<leader>f',
+        [2] = function()
           require('conform').format { async = true, lsp_fallback = true }
         end,
         mode = '',
@@ -121,12 +121,13 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        clojure = { 'cljfmt' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
+        python = { 'isort', 'black' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
-        -- gohtmltmpl = "prettierd"
+        gohtmltmpl = 'prettierd',
       },
     },
   },
