@@ -172,6 +172,8 @@ return {
       'codelldb',
       'codeql',
       'codespell',
+      'clj-kondo',
+      'cljfmt',
       'gh',
       'gitleaks',
       'haskell-debug-adapter',
