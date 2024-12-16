@@ -34,7 +34,5 @@ return {
     require('mini.ai').setup()
 
     require('mini.extra').setup()
-
-    require('mini.tabline').setup()
   end,
 }
