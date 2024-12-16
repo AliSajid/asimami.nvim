@@ -17,4 +17,12 @@ return {
     extension = 'Dockerfile.?*',
     filetype = 'dockerfile',
   },
+  {
+    extension = '.[Rr]profile',
+    filetype = 'r',
+  },
+  {
+    extension = '.[Rr]adian_profile',
+    filetype = 'r',
+  },
 }
