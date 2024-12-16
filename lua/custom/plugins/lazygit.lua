@@ -9,7 +9,7 @@ return {
   },
   dependencies = {
     'nvim-lua/plenary.nvim',
-    { 'sindrets/diffview.nvim', config = true },
+    'sindrets/diffview.nvim',
   },
   keys = {
     { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'Launch [L]azy[G]it' },
