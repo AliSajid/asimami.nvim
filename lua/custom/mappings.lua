@@ -7,7 +7,7 @@ map({ 'n', 'v' }, ';', ':', { nowait = true })
 map('v', '>', '>gv', { desc = 'indent' })
 
 -- Mapping for the cheatsheet
-map('n', '<LocalLeader>ch', '<cmd>Cheatsheet<CR>')
+map('n', '<Leader>ch', '<cmd>Cheatsheet<CR>')
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -57,3 +57,6 @@ map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 -- vim.keymap.set('n', '<leader><leader>j', require('smart-splits').swap_buf_down)
 -- vim.keymap.set('n', '<leader><leader>k', require('smart-splits').swap_buf_up)
 -- vim.keymap.set('n', '<leader><leader>l', require('smart-splits').swap_buf_right)
+
+-- Keybinds for window management
+map({ 'n', 'v' }, '<LEADER>x', ':bd<CR>', { desc = 'Close the current window' })
