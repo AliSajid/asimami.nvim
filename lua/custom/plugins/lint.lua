@@ -22,7 +22,7 @@ return {
       lint.linters_by_ft['svelte'] = { 'stylelint' }
       lint.linters_by_ft['json'] = { 'jsonlint' }
       lint.linters_by_ft['jsonc'] = { 'jsonlint' }
-      lint.linters_by_ft['yaml'] = { 'yamllint', 'cfn_lint' }
+      lint.linters_by_ft['yaml'] = { 'yamllint' }
       lint.linters_by_ft['latex'] = { 'chktex' }
       lint.linters_by_ft['bash'] = { 'shellcheck' }
       lint.linters_by_ft['clojure'] = { 'clj-kondo' }
