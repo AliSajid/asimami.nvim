@@ -10,8 +10,7 @@ return {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
 
     -- Useful status updates for LSP.
-    -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-    { [1] = 'j-hui/fidget.nvim', opts = {} },
+    { [1] = 'j-hui/fidget.nvim' },
 
     -- Allows extra capabilities provided by nvim-cmp
     'hrsh7th/cmp-nvim-lsp',
@@ -25,7 +24,7 @@ return {
     -- Lua LSP support
     {
       [1] = 'folke/lazydev.nvim',
-      ft = 'lua', -- only load on lua files
+      ft = 'lua',                                      -- only load on lua files
       dependencies = {
         { [1] = 'Bilal2453/luvit-meta', lazy = true }, -- optional `vim.uv` typings
       },

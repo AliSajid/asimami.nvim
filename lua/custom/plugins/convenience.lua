@@ -1,5 +1,22 @@
 return {
   {
+    [1] = 'j-hui/fidget.nvim',
+    tag = 'v1.4.1',
+    lazy = true,
+    opts = {
+      progress = {
+        display = {
+          progress_icon = { pattern = 'line', period = 0.7 },
+        },
+      },
+      notification = {
+        window = {
+          winblend = 0,
+        },
+      },
+    },
+  },
+  {
     [1] = 'folke/trouble.nvim',
     cmd = { 'Trouble', 'TroubleToggle', 'TodoTrouble' },
     dependencies = {
@@ -36,10 +53,12 @@ return {
   {
     [1] = 'karb94/neoscroll.nvim',
     keys = { '<C-d>', '<C-u>' },
-    opts = { mappings = {
-      '<C-u>',
-      '<C-d>',
-    } },
+    opts = {
+      mappings = {
+        '<C-u>',
+        '<C-d>',
+      }
+    },
   },
   {
     [1] = 'rainbowhxch/beacon.nvim',
@@ -74,7 +93,7 @@ return {
     cmd = 'Registers',
     config = true,
     keys = {
-      { [1] = '"', mode = { 'n', 'v' } },
+      { [1] = '"',     mode = { 'n', 'v' } },
       { [1] = '<C-R>', mode = 'i' },
     },
     name = 'registers',
