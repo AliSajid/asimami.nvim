@@ -126,5 +126,8 @@ require('lazy').setup({
 
 vim.cmd 'colorscheme catppuccin-frappe'
 
+-- load the DCF File parser / grammar
+require 'custom.dcf'
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

@@ -63,3 +63,6 @@ map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 map('n', '<LEADER>iT', utils.insertTimestamp, { desc = "[I]nsert [T]imestamp" })
 map('n', '<LEADER>it', utils.insertTime, { desc = "[I]nsert [T]ime" })
 map('n', '<LEADER>id', utils.insertDate, { desc = "[I]nsert [D]ate" })
+
+-- Shortcut to launch the Vivify preview
+map('n', '<LEADER>vv', '<PLUG>:Vivify')

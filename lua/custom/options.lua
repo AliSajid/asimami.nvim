@@ -24,6 +24,12 @@ opt.mouse = 'a'
 -- Don't show the mode, since it's already in the status line
 opt.showmode = false
 
+-- Set consistent tabstop and shiftwidth
+opt.smarttab = true
+opt.expandtab = true
+opt.shiftwidth = 4
+opt.tabstop = 4
+
 -- Sync clipboard between OS and Neo
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.

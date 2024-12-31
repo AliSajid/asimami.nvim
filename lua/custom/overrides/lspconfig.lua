@@ -13,16 +13,14 @@ local M = {
       },
     },
 
-    ['haskell-language-server'] = {},
-
     -- R language server
     r_language_server = {
       cmd = { 'R', '--slave', '-e', "'languageserver::run()'" },
 
       root_dir = function(fname)
         return require('lspconfig.util').root_pattern('DESCRIPTION', 'NAMESPACE', '.Rbuildignore')(fname)
-          or require('lspconfig.util').find_git_ancestor(fname)
-          or vim.loop.os_homedir()
+            or require('lspconfig.util').find_git_ancestor(fname)
+            or vim.loop.os_homedir()
       end,
     },
 
