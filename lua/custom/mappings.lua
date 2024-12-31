@@ -1,5 +1,5 @@
 local map = vim.keymap.set
-local utils = require('custom.utils')
+local utils = require 'custom.utils'
 
 -- No need to use shift key for command mode
 map({ 'n', 'v' }, ';', ':', { nowait = true })
@@ -60,9 +60,9 @@ map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 -- vim.keymap.set('n', '<leader><leader>l', require('smart-splits').swap_buf_right)
 
 -- Shortcut to add current timestamp
-map('n', '<LEADER>iT', utils.insertTimestamp, { desc = "[I]nsert [T]imestamp" })
-map('n', '<LEADER>it', utils.insertTime, { desc = "[I]nsert [T]ime" })
-map('n', '<LEADER>id', utils.insertDate, { desc = "[I]nsert [D]ate" })
+map('n', '<LEADER>iT', utils.insertTimestamp, { desc = '[I]nsert [T]imestamp' })
+map('n', '<LEADER>it', utils.insertTime, { desc = '[I]nsert [T]ime' })
+map('n', '<LEADER>id', utils.insertDate, { desc = '[I]nsert [D]ate' })
 
 -- Shortcut to launch the Vivify preview
 map('n', '<LEADER>vv', '<PLUG>:Vivify')

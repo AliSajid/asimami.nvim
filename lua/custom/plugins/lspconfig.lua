@@ -24,7 +24,7 @@ return {
     -- Lua LSP support
     {
       [1] = 'folke/lazydev.nvim',
-      ft = 'lua',                                      -- only load on lua files
+      ft = 'lua', -- only load on lua files
       dependencies = {
         { [1] = 'Bilal2453/luvit-meta', lazy = true }, -- optional `vim.uv` typings
       },
@@ -191,6 +191,7 @@ return {
       'shfmt',
       'sqlfmt',
       'stylelint',
+      'flake8',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

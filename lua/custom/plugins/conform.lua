@@ -39,6 +39,8 @@ return {
     init = function()
       local utils = require 'custom.utils'
 
+      vim.g.autoformat = true
+
       vim.o.formatexpr = 'v:lua.require("conform").formatexpr()'
 
       vim.api.nvim_create_autocmd('BufWritePre', {
@@ -54,7 +56,11 @@ return {
             utils.organizeImports(args.buf)
           end
 
-          if vim.b[args.buf].autoformat ~= false then
+          local should_format = vim.b[args.buf].autoformat
+          if should_format == nil then
+            should_format = vim.g.autoformat
+          end
+          if should_format then
             require('conform').format {
               buf = args.buf,
               async = false,

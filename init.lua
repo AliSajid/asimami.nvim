@@ -10,27 +10,10 @@ require 'custom.options'
 -- Load the custom keybind mappings
 require 'custom.mappings'
 
--- load custom autocommands
-require 'custom.autocommands'
-
 -- Load the custom filetypes
 local filetypes = require 'custom.filetypes'
 local filetype_overrides = require 'custom.overrides.filetypes'
 filetypes.register_from_list(filetype_overrides)
-
--- [[ Basic Autocommands ]]
---  See `:help lua-guide-autocommands`
-
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
@@ -74,7 +57,7 @@ require('lazy').setup({
   -- after the plugin has been loaded:
   --  config = function() ... end
 
-  {                     -- Useful plugin to show you pending keybinds.
+  { -- Useful plugin to show you pending keybinds.
     [1] = 'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     config = function() -- This is the function that runs, AFTER loading
@@ -92,13 +75,6 @@ require('lazy').setup({
       }
     end,
   },
-
-  -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
-  -- require 'kickstart.plugins.gitsigns',
 
   { import = 'custom.plugins' },
   { import = 'custom.themes' },
@@ -128,6 +104,9 @@ vim.cmd 'colorscheme catppuccin-frappe'
 
 -- load the DCF File parser / grammar
 require 'custom.dcf'
+
+-- load custom autocommands
+require 'custom.autocommands'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
