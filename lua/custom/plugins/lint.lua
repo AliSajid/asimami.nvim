@@ -15,8 +15,8 @@ return {
       -- lint.linters_by_ft['quarto'] = { 'lintr' }
       -- lint.linters_by_ft['rmd'] = { 'lintr' }
       lint.linters_by_ft['rust'] = { 'clippy' }
-      lint.linters_by_ft['typescript'] = { 'eslint' }
-      lint.linters_by_ft['javascript'] = { 'eslint' }
+      -- lint.linters_by_ft['typescript'] = { 'eslint_lsp' }
+      -- lint.linters_by_ft['javascript'] = { 'eslint_lsp' }
       lint.linters_by_ft['css'] = { 'stylelint' }
       lint.linters_by_ft['html'] = { 'stylelint' }
       lint.linters_by_ft['svelte'] = { 'stylelint' }

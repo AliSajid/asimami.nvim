@@ -49,9 +49,10 @@ return {
       auto_scroll = true,
       wait = 1000,
       synctex = true,
-      pdfviewer = 'skimpdf',
+      open_pdf = "open",
+      open_html = "open and focus",
+      -- pdfviewer = 'skimpdf',
       auto_quit = true,
-      csv_app = 'terminal:vd',
       view_df = {
         open_app = 'terminal:vd',
       },
