@@ -12,7 +12,7 @@ local autocmd_r = augroup('autocmd_r', { clear = true })
 autocmd('BufWritePre', {
   group = autocmd_r,
   desc = 'Format the R file on save',
-  pattern = { '*.R', '*.r', '*.Rmd', '*.rmd' },
+  pattern = { '*.R', '*.r', '*.Rmd', '*.rmd', "*.qmd" },
   callback = function()
     if vim.fn.exists ':RFormat' == 2 then
       vim.cmd 'RFormat'
