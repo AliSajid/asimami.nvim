@@ -93,7 +93,7 @@ return {
     cmd = 'Registers',
     config = true,
     keys = {
-      { [1] = '"', mode = { 'n', 'v' } },
+      { [1] = '"',     mode = { 'n', 'v' } },
       { [1] = '<C-R>', mode = 'i' },
     },
     name = 'registers',
@@ -123,4 +123,7 @@ return {
   {
     [1] = 'tpope/vim-repeat',
   },
+  {
+    [1] = "jidn/vim-dbml",
+  }
 }
