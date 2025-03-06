@@ -1,4 +1,3 @@
-local shellescape = vim.fn.shellescape
 local system_cmd = vim.fn.system
 local M = {}
 
@@ -24,13 +23,15 @@ function M.insertTimestamp()
 end
 
 function M.insertTime()
-  local timestamp = system_cmd('date -u H%M%S%Z'):gsub('\n', '')
+  local timestamp = system_cmd('date -u +%H%M%S%Z'):gsub('\n', '')
   -- vim.api.nvim_put({ timestamp }, '', false, true)
+  vim.api.nvim_put({ timestamp }, '', false, true)
 end
 
 function M.insertDate()
-  local timestamp = system_cmd('date -u "%Y%m%d"'):gsub('\n', '')
+  local timestamp = system_cmd('date -u +%Y%m%d'):gsub('\n', '')
   -- print({ timestamp }, '', false, true)
+  vim.api.nvim_put({ timestamp }, '', false, true)
 end
 
 return M
