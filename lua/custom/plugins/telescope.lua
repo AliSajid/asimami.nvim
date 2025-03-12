@@ -20,7 +20,10 @@ return { -- Fuzzy Finder (files, lsp, etc)
     { [1] = 'nvim-telescope/telescope-ui-select.nvim' },
 
     -- Useful for getting pretty icons, but requires a Nerd Font.
-    { [1] = 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+    {
+      [1] = 'nvim-tree/nvim-web-devicons',
+      enabled = vim.g.have_nerd_font
+    },
     { 'debugloop/telescope-undo.nvim' },
   },
   config = function()
@@ -91,6 +94,13 @@ return { -- Fuzzy Finder (files, lsp, etc)
         prompt_title = 'Live Grep in Open Files',
       }
     end, { desc = '[S]earch [/] in Open Files' })
+
+    vim.keymap.set('n', '<leader>sag', function()
+      builtin.live_grep {
+        prompt_title = "Live Grep in all files",
+        additional_args = { [1] = "--hidden" }
+      }
+    end, { desc = '[S]earch through [A]ll files by [G]rep' })
 
     -- Shortcut for searching your Neovim configuration files
     vim.keymap.set('n', '<leader>sn', function()
