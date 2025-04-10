@@ -19,7 +19,6 @@ return {
       -- lint.linters_by_ft['javascript'] = { 'eslint_lsp' }
       lint.linters_by_ft['css'] = { 'stylelint' }
       lint.linters_by_ft['html'] = { 'stylelint' }
-      lint.linters_by_ft['svelte'] = { 'stylelint' }
       lint.linters_by_ft['json'] = { 'jsonlint' }
       lint.linters_by_ft['jsonc'] = { 'jsonlint' }
       -- lint.linters_by_ft['yaml'] = { 'yamllint' }
