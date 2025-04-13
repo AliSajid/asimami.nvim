@@ -98,7 +98,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>sag', function()
       builtin.live_grep {
         prompt_title = "Live Grep in all files",
-        additional_args = { [1] = "--hidden" }
+        additional_args = { [1] = "--hidden", [2] = "--glob=!.git/" }
       }
     end, { desc = '[S]earch through [A]ll files by [G]rep' })
 
