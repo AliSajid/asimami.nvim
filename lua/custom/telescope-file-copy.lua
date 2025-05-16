@@ -2,7 +2,6 @@ local M = {}
 
 local pickers = require "telescope.pickers"
 local finders = require "telescope.finders"
-local conf = require("telescope.config").values
 local dropdown = require("telescope.themes").get_dropdown()
 local actions = require "telescope.actions"
 local action_state = require("telescope.actions.state")
@@ -46,9 +45,9 @@ M.copy_filename = function(state)
         function()
           actions.close(prompt_bufnr)
           local selection = action_state.get_selected_entry()
-          print(vim.inspect(selection))
-          local message = "Copied " .. selection.value.res_value .. " to register \""
+          -- print(vim.inspect(selection))
           vim.fn.setreg('"', selection.value.res_value)
+          local message = "Copied " .. selection.value.res_value .. " to register \""
           vim.notify(message)
         end
       )
