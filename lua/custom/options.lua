@@ -89,3 +89,11 @@ o.laststatus = 3
 
 -- Minimize the nvim messages
 opt.shortmess = 'aACFoIOtTs'
+
+-- Add options for `ufo`
+o.fillchars = [[eob: ,fold: ,foldopen:▾,foldsep: ,foldclose:▸]]
+o.foldenable = true
+o.foldcolumn = '1'
+o.foldlevelstart = 99
+o.foldlevel = 99
+o.foldnestmax = 1
