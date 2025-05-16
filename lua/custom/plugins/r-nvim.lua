@@ -8,6 +8,8 @@ return {
         on_filetype = function()
           vim.api.nvim_buf_set_keymap(0, 'n', '<Enter>', '<Plug>RDSendLine', {})
           vim.api.nvim_buf_set_keymap(0, 'v', '<Enter>', '<Plug>RSendSelection', {})
+          vim.api.nvim_buf_set_keymap(0, 'n', '<LocalLeader>rd', '<Plug>Roxygenize',
+            { desc = 'Add roxygen skeleton for the current function' })
           -- Mapping for httpgd
           vim.api.nvim_buf_set_keymap(
             0,
@@ -22,13 +24,6 @@ return {
             '<LocalLeader>gd',
             "<cmd>lua require('r.send').cmd('tryCatch(httpgd::hgd_browse(),error=function(e) {httpgd::hgd();httpgd::hgd_browse()})')<CR>",
             { desc = 'open httpgd' }
-          )
-          vim.api.nvim_buf_set_keymap(
-            0,
-            'n',
-            '<LocalLeader>pr',
-            '<cmd>lua require(\'r.send\').cmd(\'params <- lapply(knitr::knit_params(readLines("\' .. vim.fn.expand("%:p") .. \'")), function(x) x$value); class(params) <- "knit_param_list"\')<CR>',
-            { desc = 'Source params' }
           )
         end,
       },
@@ -51,7 +46,7 @@ return {
       synctex = true,
       open_pdf = "open",
       open_html = "open and focus",
-      -- pdfviewer = 'skimpdf',
+      pdfviewer = 'skimpdf',
       auto_quit = true,
       view_df = {
         open_app = 'terminal:vd',
