@@ -12,6 +12,6 @@ return {
     'sindrets/diffview.nvim',
   },
   keys = {
-    { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'Launch [L]azy[G]it' },
+    { [1] = '<leader>lg', [2] = '<cmd>LazyGit<cr>', desc = 'Launch [L]azy[G]it' },
   },
 }
