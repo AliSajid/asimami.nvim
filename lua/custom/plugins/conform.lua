@@ -16,9 +16,23 @@ return {
     opts = {
       notify_on_error = false,
       format_on_save = function(bufnr)
+        -- Skip invalid buffers or special buffer types
+        if not vim.api.nvim_buf_is_valid(bufnr) or vim.bo[bufnr].buftype ~= '' then
+          return nil
+        end
+
+        -- Check if formatting should be enabled
+        local should_format = vim.b[bufnr].autoformat
+        if should_format == nil then
+          should_format = vim.g.autoformat
+        end
+
+        if not should_format then
+          return nil
+        end
+
         -- Disable "format_on_save lsp_fallback" for languages that don't
-        -- have a well standardized coding style. You can add additional
-        -- languages here or re-enable it for the disabled ones.
+        -- have a well standardized coding style
         local disable_filetypes = { c = true, cpp = true }
         return {
           timeout_ms = 500,
@@ -31,43 +45,33 @@ return {
         -- Conform can also run multiple formatters sequentially
         python = { 'isort', 'black' },
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        javascript = 'prettierd',
-        typescript = 'prettierd',
-        gohtmltmpl = 'prettierd',
+        javascript = { 'prettierd' },
+        typescript = { 'prettierd' },
+        gohtmltmpl = { 'prettierd' },
         sql = { 'sleek', 'injected' },
       },
     },
     init = function()
-      local utils = require 'custom.utils'
-
+      -- Set global autoformat flag
       vim.g.autoformat = true
-
+      -- Set format expression
       vim.o.formatexpr = 'v:lua.require("conform").formatexpr()'
 
+      -- Handle organize imports separately, before conform runs
       vim.api.nvim_create_autocmd('BufWritePre', {
-        desc = 'Format on save',
+        desc = 'Organize imports before formatting',
         pattern = '*',
-        group = vim.api.nvim_create_augroup('format_on_save', { clear = true }),
+        group = vim.api.nvim_create_augroup('organize_imports', { clear = true }),
         callback = function(args)
           if not vim.api.nvim_buf_is_valid(args.buf) or vim.bo[args.buf].buftype ~= '' then
             return
           end
 
           if vim.b[args.buf].autoimport == true then
-            utils.organizeImports(args.buf)
-          end
-
-          local should_format = vim.b[args.buf].autoformat
-          if should_format == nil then
-            should_format = vim.g.autoformat
-          end
-          if should_format then
-            require('conform').format {
-              buf = args.buf,
-              async = false,
-              timeout_ms = 500,
-              lsp_fallback = true,
-            }
+            local ok, utils = pcall(require, 'custom.utils')
+            if ok and utils.organizeImports then
+              utils.organizeImports(args.buf)
+            end
           end
         end,
       })

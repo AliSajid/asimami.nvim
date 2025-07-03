@@ -8,23 +8,7 @@ return {
         on_filetype = function()
           vim.api.nvim_buf_set_keymap(0, 'n', '<Enter>', '<Plug>RDSendLine', {})
           vim.api.nvim_buf_set_keymap(0, 'v', '<Enter>', '<Plug>RSendSelection', {})
-          vim.api.nvim_buf_set_keymap(0, 'n', '<LocalLeader>rd', '<Plug>Roxygenize',
-            { desc = 'Add roxygen skeleton for the current function' })
-          -- Mapping for httpgd
-          vim.api.nvim_buf_set_keymap(
-            0,
-            'n',
-            '<LocalLeader>gd',
-            "<cmd>lua require('r.send').cmd('tryCatch(httpgd::hgd_browse(),error=function(e) {httpgd::hgd();httpgd::hgd_browse()})')<CR>",
-            { desc = 'open httpgd' }
-          )
-          vim.api.nvim_buf_set_keymap(
-            0,
-            'v',
-            '<LocalLeader>gd',
-            "<cmd>lua require('r.send').cmd('tryCatch(httpgd::hgd_browse(),error=function(e) {httpgd::hgd();httpgd::hgd_browse()})')<CR>",
-            { desc = 'open httpgd' }
-          )
+          vim.api.nvim_buf_set_keymap(0, 'n', '<LocalLeader>rd', '<Plug>Roxygenize', { desc = 'Add roxygen skeleton for the current function' })
         end,
       },
       R_app = 'radian',
@@ -44,8 +28,8 @@ return {
       auto_scroll = true,
       wait = 1000,
       synctex = true,
-      open_pdf = "open",
-      open_html = "open and focus",
+      open_pdf = 'open',
+      open_html = 'open and focus',
       pdfviewer = 'skimpdf',
       auto_quit = true,
       view_df = {

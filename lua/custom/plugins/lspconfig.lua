@@ -16,7 +16,7 @@ return {
     'hrsh7th/cmp-nvim-lsp',
 
     -- Add extra capabilities for the ltex language server
-    'barreiroleo/ltex-extra.nvim',
+    { [1] = 'barreiroleo/ltex-extra.nvim', branch = 'dev' },
 
     -- Schema store for schema support
     'b0o/schemastore.nvim',
@@ -24,7 +24,7 @@ return {
     -- Lua LSP support
     {
       [1] = 'folke/lazydev.nvim',
-      ft = 'lua',                                      -- only load on lua files
+      ft = 'lua', -- only load on lua files
       dependencies = {
         { [1] = 'Bilal2453/luvit-meta', lazy = true }, -- optional `vim.uv` typings
       },
