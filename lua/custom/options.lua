@@ -97,3 +97,17 @@ o.foldcolumn = '1'
 o.foldlevelstart = 99
 o.foldlevel = 99
 o.foldnestmax = 1
+
+-- Additional options for rustaceanvim
+g.rustaceanvim = {
+  -- LSP configuration
+  server = {
+    default_settings = {
+      -- rust-analyzer language server configuration
+      ['rust-analyzer'] = {
+        checkOnSave = false,
+        diagnostics = false,
+      },
+    },
+  },
+}

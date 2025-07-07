@@ -107,6 +107,18 @@ local M = {
       },
     },
 
+    -- Configure the bacon-ls
+    bacon_ls = {
+      settings = {
+        bacon_ls = {
+          init_options = {
+            updateOnSave = true,
+            updateOnSaveWaitMillis = 1000,
+          },
+        },
+      },
+    },
+
     -- web dev related language servers
     ts_ls = {},
 
