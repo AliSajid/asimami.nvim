@@ -10,6 +10,7 @@ return {
       vim.g['conjure#debug'] = true
       vim.g['conjure#mapping#doc_word'] = false
       vim.g['conjure#filetype#rust'] = false
+      vim.g['conjure#filetype#r'] = false
     end,
 
     -- Optional cmp-conjure integration

@@ -16,7 +16,7 @@ return {
     'hrsh7th/cmp-nvim-lsp',
 
     -- Add extra capabilities for the ltex language server
-    { [1] = 'barreiroleo/ltex-extra.nvim', branch = 'dev' },
+    { [1] = 'barreiroleo/ltex_extra.nvim', branch = 'dev' },
 
     -- Schema store for schema support
     'b0o/schemastore.nvim',
@@ -192,6 +192,7 @@ return {
       'sqlfmt',
       'stylelint',
       'flake8',
+      'texlab',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

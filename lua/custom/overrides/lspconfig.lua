@@ -25,11 +25,7 @@ local M = {
     },
 
     -- ltex and ltex extra for LaTeX and friends
-    ltex = {
-      on_attach = function()
-        require('ltex_extra').setup {}
-      end,
-    },
+    ltex = {},
 
     -- python language server and friends
     ruff = {},
