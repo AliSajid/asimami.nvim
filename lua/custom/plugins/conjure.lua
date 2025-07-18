@@ -1,7 +1,7 @@
 return {
   {
     [1] = 'Olical/conjure',
-    ft = { 'clojure', 'fennel', 'python', 'lua', 'Racket', 'Scheme' }, -- etc
+    ft = { 'clojure', 'fennel', 'lua', 'Racket', 'Scheme' }, -- etc
     init = function()
       vim.g['conjure#extract#tree_sitter#enabled'] = true
       -- Set configuration options here
@@ -11,6 +11,7 @@ return {
       vim.g['conjure#mapping#doc_word'] = false
       vim.g['conjure#filetype#rust'] = false
       vim.g['conjure#filetype#r'] = false
+      vim.g['conjure#filetype#python'] = false
     end,
 
     -- Optional cmp-conjure integration
