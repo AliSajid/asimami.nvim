@@ -105,7 +105,6 @@ g.rustaceanvim = {
     default_settings = {
       -- rust-analyzer language server configuration
       ['rust-analyzer'] = {
-        checkOnSave = false,
         diagnostics = false,
       },
     },

@@ -110,6 +110,9 @@ local M = {
           init_options = {
             updateOnSave = true,
             updateOnSaveWaitMillis = 1000,
+            runBaconInBackground = true,
+            validateBaconPreferences = true,
+            createBaconPreferencesFile = true,
           },
         },
       },
