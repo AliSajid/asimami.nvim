@@ -34,6 +34,7 @@ return {
       auto_quit = true,
       view_df = {
         open_app = 'terminal:vd',
+        n_lines = 0,
       },
       disable_cmds = {
         'RClearConsole',
