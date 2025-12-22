@@ -32,7 +32,6 @@ return {
     --  into multiple repos for maintenance purposes.
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
-    'R-nvim/cmp-r',
     'hrsh7th/cmp-nvim-lua',
     'hrsh7th/cmp-buffer',
     'SergioRibera/cmp-dotenv',
