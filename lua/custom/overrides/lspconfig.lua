@@ -8,21 +8,21 @@ local M = {
             callSnippet = 'Replace',
           },
           -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-          -- diagnostics = { disable = { 'missing-fields' } },
+          diagnostics = { disable = { 'missing-fields' } },
         },
       },
     },
 
     -- R language server
-    r_language_server = {
-      cmd = { 'R', '--slave', '-e', "'languageserver::run()'" },
-
-      root_dir = function(fname)
-        return require('lspconfig.util').root_pattern('DESCRIPTION', 'NAMESPACE', '.Rbuildignore')(fname)
-          or require('lspconfig.util').find_git_ancestor(fname)
-          or vim.loop.os_homedir()
-      end,
-    },
+    -- r_language_server = {
+    --   cmd = { 'R', '--slave', '-e', "'languageserver::run()'" },
+    --
+    --   root_dir = function(fname)
+    --     return require('lspconfig.util').root_pattern('DESCRIPTION', 'NAMESPACE', '.Rbuildignore')(fname)
+    --       or require('lspconfig.util').find_git_ancestor(fname)
+    --       or vim.loop.os_homedir()
+    --   end,
+    -- },
 
     -- ltex and ltex extra for LaTeX and friends
     ltex = {},

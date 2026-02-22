@@ -169,7 +169,6 @@ return {
       'bacon-ls',
       'cfn-lint',
       'codelldb',
-      'codeql',
       'codespell',
       'clj-kondo',
       'cljfmt',
