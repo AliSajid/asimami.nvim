@@ -13,19 +13,24 @@ local M = {
       },
     },
 
-    -- R language server
-    -- r_language_server = {
-    --   cmd = { 'R', '--slave', '-e', "'languageserver::run()'" },
-    --
-    --   root_dir = function(fname)
-    --     return require('lspconfig.util').root_pattern('DESCRIPTION', 'NAMESPACE', '.Rbuildignore')(fname)
-    --       or require('lspconfig.util').find_git_ancestor(fname)
-    --       or vim.loop.os_homedir()
-    --   end,
-    -- },
-
     -- ltex and ltex extra for LaTeX and friends
-    ltex = {},
+    -- ltex = {},
+
+    -- ltex and ltex extra plus for LaTeX and friends
+    ltex_plus = {
+      settings = {
+        ltex = {
+          enabled = { 'latex', 'tex', 'bib', 'markdown', 'plaintex', 'text' },
+          language = 'en-GB',
+          additionalRules = { enablePickyRules = true },
+          -- THIS IS IGNORED
+          -- (I assume everything here is ignored but this make it visible)
+          disabledRules = {
+            ['en-GB'] = { 'OXFORD_SPELLING_Z_NOT_S' },
+          },
+        },
+      },
+    },
 
     -- python language server and friends
     ruff = {},

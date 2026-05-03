@@ -96,24 +96,24 @@ return {
     end,
   },
   { [1] = 'm-demare/hlargs.nvim' },
-  {
-    [1] = 'tversteeg/registers.nvim',
-    cmd = 'Registers',
-    config = true,
-    keys = {
-      { [1] = '"', mode = { 'n', 'v' } },
-      { [1] = '<C-R>', mode = 'i' },
-    },
-    name = 'registers',
-  },
-  {
-    [1] = 'AckslD/nvim-neoclip.lua',
-    dependencies = {
-      -- you'll need at least one of these
-      { 'nvim-telescope/telescope.nvim' },
-    },
-    opts = {},
-  },
+  -- {
+  --   [1] = 'tversteeg/registers.nvim',
+  --   cmd = 'Registers',
+  --   config = true,
+  --   keys = {
+  --     { [1] = '"', mode = { 'n', 'v' } },
+  --     { [1] = '<C-R>', mode = 'i' },
+  --   },
+  --   name = 'registers',
+  -- },
+  -- {
+  --   [1] = 'AckslD/nvim-neoclip.lua',
+  --   dependencies = {
+  --     -- you'll need at least one of these
+  --     { 'nvim-telescope/telescope.nvim' },
+  --   },
+  --   opts = {},
+  -- },
   {
     [1] = 'tris203/hawtkeys.nvim',
     dependencies = {

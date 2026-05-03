@@ -1,7 +1,7 @@
 return { -- Fuzzy Finder (files, lsp, etc)
   [1] = 'nvim-telescope/telescope.nvim',
   event = 'VimEnter',
-  branch = '0.1.x',
+  branch = 'master', -- Use v0.1.x for stable 0.1.x series (0.1.3+)
   dependencies = {
     { [1] = 'nvim-lua/plenary.nvim' },
     { -- If encountering errors, see telescope-fzf-native README for installation instructions
@@ -22,7 +22,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- Useful for getting pretty icons, but requires a Nerd Font.
     {
       [1] = 'nvim-tree/nvim-web-devicons',
-      enabled = vim.g.have_nerd_font
+      enabled = vim.g.have_nerd_font,
     },
     { 'debugloop/telescope-undo.nvim' },
   },
@@ -97,8 +97,8 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     vim.keymap.set('n', '<leader>sag', function()
       builtin.live_grep {
-        prompt_title = "Live Grep in all files",
-        additional_args = { [1] = "--hidden", [2] = "--glob=!.git/" }
+        prompt_title = 'Live Grep in all files',
+        additional_args = { [1] = '--hidden', [2] = '--glob=!.git/' },
       }
     end, { desc = '[S]earch through [A]ll files by [G]rep' })
 
