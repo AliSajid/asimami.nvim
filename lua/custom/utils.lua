@@ -17,19 +17,25 @@ function M.organizeImports(bufnr)
 end
 
 function M.insertTimestamp()
-  local timestamp = system_cmd('date -u +%Y%m%d%H%M%S%Z'):gsub('\n', '')
+  local timestamp = vim.system('date -u +%Y%m%d%H%M%S%Z', {})
+  local stdout, stderr, exit_code = table.unpack(timestamp)
+  return stdout:gsub('\n', '')
   -- print("Timestamp" .. timestamp)
   vim.api.nvim_put({ timestamp }, '', false, true)
 end
 
 function M.insertTime()
-  local timestamp = system_cmd('date -u +%H%M%S%Z'):gsub('\n', '')
+  local timestamp = vim.system('date -u +%H%M%S%Z', {})
+  local stdout, stderr, exit_code = table.unpack(timestamp)
+  return stdout:gsub('\n', '')
   -- vim.api.nvim_put({ timestamp }, '', false, true)
   vim.api.nvim_put({ timestamp }, '', false, true)
 end
 
 function M.insertDate()
-  local timestamp = system_cmd('date -u +%Y%m%d'):gsub('\n', '')
+  local timestamp = vim.system('date -u +%Y%m%d', {})
+  local stdout, stderr, exit_code = table.unpack(timestamp)
+  return stdout:gsub('\n', '')
   -- print({ timestamp }, '', false, true)
   vim.api.nvim_put({ timestamp }, '', false, true)
 end
