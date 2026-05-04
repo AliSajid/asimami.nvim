@@ -1,4 +1,3 @@
-local system_cmd = vim.fn.system
 local M = {}
 
 function M.organizeImports(bufnr)
@@ -17,27 +16,32 @@ function M.organizeImports(bufnr)
 end
 
 function M.insertTimestamp()
-  local timestamp = vim.system('date -u +%Y%m%d%H%M%S%Z', {})
-  local stdout, stderr, exit_code = table.unpack(timestamp)
-  return stdout:gsub('\n', '')
-  -- print("Timestamp" .. timestamp)
-  vim.api.nvim_put({ timestamp }, '', false, true)
+  -- The "!" prefix forces UTC
+  -- Equivalent to your shell: 'date -u +%Y%m%d%H%M%S%Z'
+  local timestamp = os.date '!%Y%m%d%H%M%S%Z'
+
+  if timestamp then
+    vim.api.nvim_put({ timestamp }, 'c', true, true)
+  end
+  return timestamp
 end
 
 function M.insertTime()
-  local timestamp = vim.system('date -u +%H%M%S%Z', {})
-  local stdout, stderr, exit_code = table.unpack(timestamp)
-  return stdout:gsub('\n', '')
-  -- vim.api.nvim_put({ timestamp }, '', false, true)
-  vim.api.nvim_put({ timestamp }, '', false, true)
+  local timestamp = os.date '!%H%M%S%Z'
+
+  if timestamp then
+    vim.api.nvim_put({ timestamp }, 'c', true, true)
+  end
+  return timestamp
 end
 
 function M.insertDate()
-  local timestamp = vim.system('date -u +%Y%m%d', {})
-  local stdout, stderr, exit_code = table.unpack(timestamp)
-  return stdout:gsub('\n', '')
-  -- print({ timestamp }, '', false, true)
-  vim.api.nvim_put({ timestamp }, '', false, true)
+  local timestamp = os.date '!%Y%m%d%Z'
+
+  if timestamp then
+    vim.api.nvim_put({ timestamp }, 'c', true, true)
+  end
+  return timestamp
 end
 
 return M
