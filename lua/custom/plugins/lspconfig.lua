@@ -203,8 +203,8 @@ return {
           -- by the server configuration above. Useful when disabling
           -- certain features of an LSP (for example, turning off formatting for tsserver)
           server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          vim.lsp.config(server_name, server)
-          vim.lsp.enable(server_name)
+          vim.lsp.start { name = server_name, config = server }
+          vim.diagnostic.enable { virtual_text = true, underline = true, signs = true }
         end,
       },
     }
