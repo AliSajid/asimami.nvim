@@ -144,6 +144,8 @@ local M = {
     terraformls = {},
     vimls = {},
     jqls = {},
+    go = {},
+    gopls = {},
     vale_ls = {},
     taplo = {},
   },
