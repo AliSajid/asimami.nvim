@@ -34,7 +34,6 @@ return {
   },
   { [1] = 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
   'b0o/schemastore.nvim',
-  'mateuszwieloch/automkdir.nvim',
   'dmmulroy/ts-error-translator.nvim',
   {
     [1] = 'utilyre/barbecue.nvim',

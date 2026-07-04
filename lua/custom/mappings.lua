@@ -65,8 +65,5 @@ map('n', '<LEADER>id', utils.insertDate, { desc = '[I]nsert [D]ate' })
 -- Shortcut to launch the Vivify preview
 map('n', '<LEADER>vv', '<PLUG>:Vivify')
 
--- Add LSP Import resolution mapping
--- map('n', '<leader>a', require('lspimport').import, { noremap = true })
-
 -- Shortcutes to help with R package development
 map('n', '<LocalLeader>rdt', 'require("r.send").cmd("library(devtools)")', { desc = 'Load R [d]ev[t]ools in console' })

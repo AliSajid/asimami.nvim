@@ -106,5 +106,19 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>sn', function()
       builtin.find_files { cwd = vim.fn.stdpath 'config' }
     end, { desc = '[S]earch [N]eovim files' })
+
+    -- mini.pick keybindings (optional, works alongside telescope)
+    -- :Pick find_files - Find files
+    -- :Pick buffers - Find buffers
+    -- :Pick diagnostics - Find diagnostics
+    vim.keymap.set('n', '<leader>pf', function()
+      require('mini.pick').file {}
+    end, { desc = 'Files' })
+    vim.keymap.set('n', '<leader>pb', function()
+      require('mini.pick').buffer {}
+    end, { desc = 'Buffers' })
+    vim.keymap.set('n', '<leader>pd', function()
+      require('mini.pick').diagnostic {}
+    end, { desc = 'Diagnostics' })
   end,
 }
