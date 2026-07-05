@@ -1,5 +1,3 @@
-local lspoverrides = require 'custom.overrides.lspconfig'
-
 return {
   -- Main LSP Configuration
   [1] = 'neovim/nvim-lspconfig',
@@ -161,7 +159,7 @@ return {
     --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
     --  - settings (table): Override the default settings passed when initializing the server.
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
-    local servers = lspoverrides.servers
+    local servers = require('custom.overrides.lspconfig').servers
 
     -- Ensure the servers and tools above are installed
     --  To check the current status of installed tools and/or manually install
@@ -208,7 +206,7 @@ return {
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
-    vim.diagnostic.enable { virtual_text = true, underline = true, signs = true }
+    vim.diagnostic.config { virtual_text = true, underline = true, signs = true }
 
     require('mason-lspconfig').setup {
       handlers = {

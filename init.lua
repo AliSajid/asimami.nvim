@@ -39,44 +39,7 @@ vim.opt.rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
-  -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-  -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
-  --
-  -- This is often very useful to both group configuration, as well as handle
-  -- lazy loading plugins that don't need to be loaded immediately at startup.
-  --
-  -- For example, in the following configuration, we use:
-  --  event = 'VimEnter'
-  --
-  -- which loads which-key before all the UI elements are loaded. Events can be
-  -- normal autocommands events (`:help autocmd-events`).
-  --
-  -- Then, because we use the `config` key, the configuration only runs
-  -- after the plugin has been loaded:
-  --  config = function() ... end
-
-  { -- Useful plugin to show you pending keybinds.
-    [1] = 'folke/which-key.nvim',
-    event = 'VimEnter', -- Sets the loading event to 'VimEnter'
-    config = function() -- This is the function that runs, AFTER loading
-      require('which-key').setup()
-
-      -- Document existing key chains
-      spec = {
-        { [1] = '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
-        { [1] = '<leader>d', group = '[D]ocument' },
-        { [1] = '<leader>r', group = '[R]ename' },
-        { [1] = '<leader>s', group = '[S]earch' },
-        { [1] = '<leader>w', group = '[W]orkspace' },
-        { [1] = '<leader>t', group = '[T]oggle' },
-        { [1] = '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
-      },
-    },
-  },
-
-  -- NOTE: Plugins can specify dependencies.
   -- All plugin configs live under lua/custom/plugins/ and are auto-discovered.
-
   { import = 'custom.plugins' },
   { import = 'custom.themes' },
 

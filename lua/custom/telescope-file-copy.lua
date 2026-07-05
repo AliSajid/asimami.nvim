@@ -1,13 +1,12 @@
 local M = {}
 
-local pickers = require "telescope.pickers"
-local finders = require "telescope.finders"
-local dropdown = require("telescope.themes").get_dropdown()
-local actions = require "telescope.actions"
-local action_state = require("telescope.actions.state")
-
-
 M.copy_filename = function(state)
+  local pickers = require "telescope.pickers"
+  local finders = require "telescope.finders"
+  local dropdown = require("telescope.themes").get_dropdown()
+  local actions = require "telescope.actions"
+  local action_state = require("telescope.actions.state")
+
   -- NeoTree is based on [NuiTree](https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/tree)
   -- The node is based on [NuiNode](https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/tree#nuitreenode)
   local node = state.tree:get_node()

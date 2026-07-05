@@ -1,8 +1,6 @@
 -- Neo-tree is a Neovim plugin to browse the file system
 -- https://github.com/nvim-neo-tree/neo-tree.nvim
 
-local file_copy = require("custom.telescope-file-copy")
-
 return {
   [1] = 'nvim-neo-tree/neo-tree.nvim',
   version = 'v3.x',
@@ -38,7 +36,7 @@ return {
           ['\\\\'] = 'close_window',
           ['<TAB>'] = 'toggle_node',
           ['Y'] = function(state)
-            file_copy.copy_filename(state)
+            require('custom.telescope-file-copy').copy_filename(state)
           end
         },
       },
