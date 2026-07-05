@@ -10,13 +10,26 @@ return {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
 
     -- Useful status updates for LSP.
-    { [1] = 'j-hui/fidget.nvim' },
+    {
+      [1] = 'j-hui/fidget.nvim',
+      tag = 'v1.4.1',
+      lazy = true,
+      opts = {
+        progress = {
+          display = {
+            progress_icon = { pattern = 'line', period = 0.7 },
+          },
+        },
+        notification = {
+          window = {
+            winblend = 0,
+          },
+        },
+      },
+    },
 
     -- Allows extra capabilities provided by nvim-cmp
     'hrsh7th/cmp-nvim-lsp',
-
-    -- Add extra capabilities for the ltex language server
-    { [1] = 'barreiroleo/ltex_extra.nvim', branch = 'dev' },
 
     -- Schema store for schema support
     'b0o/schemastore.nvim',
@@ -195,16 +208,14 @@ return {
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
+    vim.diagnostic.enable { virtual_text = true, underline = true, signs = true }
+
     require('mason-lspconfig').setup {
       handlers = {
         function(server_name)
           local server = servers[server_name] or {}
-          -- This handles overriding only values explicitly passed
-          -- by the server configuration above. Useful when disabling
-          -- certain features of an LSP (for example, turning off formatting for tsserver)
           server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
           vim.lsp.start { name = server_name, config = server }
-          vim.diagnostic.enable { virtual_text = true, underline = true, signs = true }
         end,
       },
     }

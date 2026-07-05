@@ -1,39 +1,8 @@
 return {
-  {
-    [1] = 'j-hui/fidget.nvim',
-    tag = 'v1.4.1',
-    lazy = true,
-    opts = {
-      progress = {
-        display = {
-          progress_icon = { pattern = 'line', period = 0.7 },
-        },
-      },
-      notification = {
-        window = {
-          winblend = 0,
-        },
-      },
-    },
-  },
-  {
-    [1] = 'folke/trouble.nvim',
-    cmd = { 'Trouble', 'TroubleToggle', 'TodoTrouble' },
-    dependencies = {
-      {
-        'folke/todo-comments.nvim',
-      },
-    },
-    opts = {},
-    init = function()
-      local map = vim.keymap.set
-
-      map('n', '<leader>t', '<CMD>Trouble diagnostics toggle<CR>', { desc = 'Toggle diagnostics' })
-      map('n', '<leader>td', '<CMD>TodoTrouble keywords=TODO,FIX,FIXME,BUG,TEST,NOTE<CR>', { desc = 'Todo/Fix/Fixme' })
-    end,
-  },
+  -- fidget.nvim configured in lspconfig.lua
+  -- trouble.nvim configured in trouble.lua
   { [1] = 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
-  'b0o/schemastore.nvim',
+  -- schemastore.nvim configured in lspconfig.lua
   'dmmulroy/ts-error-translator.nvim',
   {
     [1] = 'utilyre/barbecue.nvim',
