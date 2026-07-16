@@ -8,7 +8,6 @@ return {
     'LazyGitFilterCurrentFile',
   },
   dependencies = {
-    'nvim-lua/plenary.nvim',
     'sindrets/diffview.nvim',
   },
   keys = {

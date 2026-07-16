@@ -4,7 +4,6 @@ return {
 
   dependencies = {
     'neovim/nvim-lspconfig',
-    'nvim-lua/plenary.nvim',
     'hrsh7th/nvim-cmp',
     'nvim-telescope/telescope.nvim', -- for 2 Lean-specific pickers
     -- 'andymass/vim-matchup',          -- for enhanced % motion behavior

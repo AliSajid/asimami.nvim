@@ -4,7 +4,6 @@ return {
   dependencies = {
     { 'nvim-telescope/telescope.nvim' },
     { 'nvim-lua/popup.nvim' },
-    { 'nvim-lua/plenary.nvim' },
   },
   config = function()
     local ctactions = require 'cheatsheet.telescope.actions'
