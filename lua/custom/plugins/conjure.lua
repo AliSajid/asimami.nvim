@@ -14,8 +14,7 @@ return {
       vim.g['conjure#filetype#python'] = false
     end,
 
-    -- Optional cmp-conjure integration
-    dependencies = { { 'PaterJason/cmp-conjure' }, { 'Grazfather/sexp.nvim' }, { 'tpope/vim-repeat' } },
+    dependencies = { 'tpope/vim-repeat' },
   },
   {
     'PaterJason/cmp-conjure',
