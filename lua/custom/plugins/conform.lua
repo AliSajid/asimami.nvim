@@ -1,12 +1,12 @@
 return {
   { -- Autoformat
-    [1] = 'stevearc/conform.nvim',
+    'stevearc/conform.nvim',
     event = { 'BufWritePre' },
     cmd = { 'ConformInfo' },
     keys = {
       {
-        [1] = '<leader>f',
-        [2] = function()
+        '<leader>f',
+        function()
           require('conform').format { async = true, lsp_fallback = true }
         end,
         mode = '',

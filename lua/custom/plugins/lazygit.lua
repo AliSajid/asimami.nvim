@@ -1,5 +1,5 @@
 return {
-  [1] = 'kdheepak/lazygit.nvim',
+  'kdheepak/lazygit.nvim',
   cmd = {
     'LazyGit',
     'LazyGitConfig',
@@ -12,6 +12,6 @@ return {
     'sindrets/diffview.nvim',
   },
   keys = {
-    { [1] = '<leader>lg', [2] = '<cmd>LazyGit<cr>', desc = 'Launch [L]azy[G]it' },
+    { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'Launch [L]azy[G]it' },
   },
 }

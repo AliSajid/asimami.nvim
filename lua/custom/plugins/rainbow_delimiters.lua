@@ -1,5 +1,5 @@
 return {
-  [1] = 'hiphish/rainbow-delimiters.nvim',
+  'hiphish/rainbow-delimiters.nvim',
   event = 'BufReadPost',
   config = function()
     local rainbow_delimiters = require 'rainbow-delimiters'

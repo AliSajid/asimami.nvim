@@ -1,11 +1,11 @@
 return { -- Fuzzy Finder (files, lsp, etc)
-  [1] = 'nvim-telescope/telescope.nvim',
+  'nvim-telescope/telescope.nvim',
   event = 'VimEnter',
   branch = 'master', -- Use v0.1.x for stable 0.1.x series (0.1.3+)
   dependencies = {
-    { [1] = 'nvim-lua/plenary.nvim' },
+    { 'nvim-lua/plenary.nvim' },
     { -- If encountering errors, see telescope-fzf-native README for installation instructions
-      [1] = 'nvim-telescope/telescope-fzf-native.nvim',
+      'nvim-telescope/telescope-fzf-native.nvim',
 
       -- `build` is used to run some command when the plugin is installed/updated.
       -- This is only run then, not every time Neovim starts up.
@@ -17,11 +17,11 @@ return { -- Fuzzy Finder (files, lsp, etc)
         return vim.fn.executable 'make' == 1
       end,
     },
-    { [1] = 'nvim-telescope/telescope-ui-select.nvim' },
+    { 'nvim-telescope/telescope-ui-select.nvim' },
 
     -- Useful for getting pretty icons, but requires a Nerd Font.
     {
-      [1] = 'nvim-tree/nvim-web-devicons',
+      'nvim-tree/nvim-web-devicons',
       enabled = vim.g.have_nerd_font,
     },
     { 'debugloop/telescope-undo.nvim' },
@@ -98,7 +98,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>sag', function()
       builtin.live_grep {
         prompt_title = 'Live Grep in all files',
-        additional_args = { [1] = '--hidden', [2] = '--glob=!.git/' },
+        additional_args = { '--hidden', '--glob=!.git/' },
       }
     end, { desc = '[S]earch through [A]ll files by [G]rep' })
 

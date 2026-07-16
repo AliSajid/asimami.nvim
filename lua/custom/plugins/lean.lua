@@ -1,5 +1,5 @@
 return {
-  [1] = 'Julian/lean.nvim',
+  'Julian/lean.nvim',
   event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
 
   dependencies = {

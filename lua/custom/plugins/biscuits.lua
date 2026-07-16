@@ -1,5 +1,5 @@
 return {
-  [1] = 'code-biscuits/nvim-biscuits',
+  'code-biscuits/nvim-biscuits',
   event = 'BufReadPost',
   opts = {
     show_on_start = false,

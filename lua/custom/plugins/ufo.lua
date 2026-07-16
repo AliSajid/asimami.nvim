@@ -1,7 +1,7 @@
 return {
-  [1] = {
-    [1] = "kevinhwang91/nvim-ufo",
-    dependencies = "kevinhwang91/promise-async",
+  {
+    'kevinhwang91/nvim-ufo',
+    dependencies = 'kevinhwang91/promise-async',
     lazy = false,
     opts = {
       open_fold_hl_timeout = 400,
@@ -10,16 +10,16 @@ return {
       end,
       preview = {
         win_config = {
-          border = { "", "─", "", "", "", "─", "", "" },
+          border = { '', '─', '', '', '', '─', '', '' },
           winblend = 0,
         },
         mappings = {
-          scrollU = "<C-u>",
-          scrollD = "<C-d>",
-          jumpTop = "[",
-          jumpBot = "]",
+          scrollU = '<C-u>',
+          scrollD = '<C-d>',
+          jumpTop = '[',
+          jumpBot = ']',
         },
-      }
-    }
-  }
+      },
+    },
+  },
 }

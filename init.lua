@@ -42,22 +42,6 @@ require('lazy').setup({
   -- All plugin configs live under lua/custom/plugins/ and are auto-discovered.
   { import = 'custom.plugins' },
   { import = 'custom.themes' },
-
-  -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
-  -- init.lua. If you want these files, they are in the repository, so you can just download them and
-  -- place them in the correct locations.
-
-  -- NOTE: Next step on your Neovim journey: Add/Configure additional plugins for Kickstart
-  --
-  --  Here are some example plugins that I've included in the Kickstart repository.
-  --  Uncomment any of the lines below to enable them (you will need to restart nvim).
-  --
-  -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
-  -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
@@ -80,9 +64,8 @@ require('lazy').setup({
   },
 })
 
--- Colorscheme is loaded by the tokyonight plugin with priority 1000
--- Use 'catppuccin-frappe' as a fallback if tokyonight isn't available
-vim.cmd.colorscheme 'catppuccin-frappe' -- Commented out to avoid duplicates
+-- Colorscheme is configured in lua/custom/themes/catppuccin.lua
+vim.cmd.colorscheme 'catppuccin-frappe'
 
 -- load custom autocommands
 require 'custom.autocommands'

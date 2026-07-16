@@ -2,7 +2,7 @@
 -- https://github.com/nvim-neo-tree/neo-tree.nvim
 
 return {
-  [1] = 'nvim-neo-tree/neo-tree.nvim',
+  'nvim-neo-tree/neo-tree.nvim',
   version = 'v3.x',
   dependencies = {
     'nvim-lua/plenary.nvim',

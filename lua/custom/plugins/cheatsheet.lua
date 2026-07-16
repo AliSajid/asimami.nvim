@@ -1,5 +1,5 @@
 return {
-  [1] = 'doctorfree/cheatsheet.nvim',
+  'doctorfree/cheatsheet.nvim',
   event = 'VeryLazy',
   dependencies = {
     { 'nvim-telescope/telescope.nvim' },

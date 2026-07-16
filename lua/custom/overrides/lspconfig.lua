@@ -1,4 +1,39 @@
 local M = {
+  -- Additional Mason-installed CLI tools (formatters, linters, DAP adapters)
+  -- that aren't LSP servers, so they don't belong in `servers` above.
+  tools = {
+    'stylua', -- Used to format Lua code
+    'blackd-client',
+    'autopep8',
+    'autoflake',
+    'bacon-ls',
+    'cfn-lint',
+    'codelldb',
+    'codespell',
+    'clj-kondo',
+    'cljfmt',
+    'gh',
+    'gitleaks',
+    'haskell-debug-adapter',
+    'jsonlint',
+    'markdown-toc',
+    'markdownlint-cli2',
+    'mypy',
+    'oxlint',
+    'prettierd',
+    'proselint',
+    'pydocstyle',
+    'pyflakes',
+    'selene',
+    'semgrep',
+    'shellharden',
+    'shfmt',
+    'sqlfmt',
+    'stylelint',
+    'flake8',
+    'texlab',
+  },
+
   servers = {
     -- lua language server
     lua_ls = {

@@ -1,13 +1,13 @@
 return {
-  [1] = 'apple/pkl-neovim',
+  'apple/pkl-neovim',
   lazy = true,
   ft = 'pkl',
   dependencies = {
     {
-      [1] = 'nvim-treesitter/nvim-treesitter',
+      'nvim-treesitter/nvim-treesitter',
     },
     {
-      [1] = 'L3MON4D3/LuaSnip',
+      'L3MON4D3/LuaSnip',
     },
   },
   build = function()

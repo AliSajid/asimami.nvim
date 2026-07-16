@@ -1,5 +1,5 @@
 return {
-  [1] = 'nvim-mini/mini.nvim',
+  'nvim-mini/mini.nvim',
   config = function()
     -- Better Around/Inside textobjects
     --
@@ -36,9 +36,6 @@ return {
       icons = vim.g.have_nerd_font,
     }
 
-    -- Faster LSP hover with mini.hover
-    -- require('mini.hover').setup()
-
     -- Indentation guides (indentation markers)
     require('mini.indentscope').setup {
       -- depth = 4,
@@ -61,14 +58,6 @@ return {
       end,
     }
 
-    -- Folding with mini.fold
-    -- require('mini.fold').setup {
-    --   max_fold_level = 10,
-    --   fold_open = '▾',
-    --   fold_closed = '▸',
-    --   indent_guides = false, -- enabled by mini.indentscope
-    -- }
-
     -- Unicode icons
     require('mini.icons').setup {
       icons = vim.g.have_nerd_font and {} or {
@@ -79,14 +68,5 @@ return {
     }
 
     require('mini.extra').setup()
-
-    -- Set up keymaps for mini.hover (faster LSP hover)
-    -- vim.keymap.set('n', '<leader>kh', require('mini.hover').show, { desc = '[K]eyword/Show LSP [H]over' })
-
-    -- Set up keymaps for mini.fold folding navigation
-    -- vim.keymap.set('n', 'zo', require('mini.fold').unfold, { desc = '[Z]oom (unfold fold)' })
-    -- vim.keymap.set('n', 'za', require('mini.fold').fold_all, { desc = '[Z]oom All (fold all)' })
-    -- vim.keymap.set('n', 'zO', require('mini.fold').unfold_all, { desc = '[Z]oom Out (unfold all)' })
-    -- vim.keymap.set('v', 'zo', require('mini.fold').unfold, { desc = '[Z]oom (unfold)' })
   end,
 }

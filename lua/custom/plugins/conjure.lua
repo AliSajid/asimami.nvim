@@ -1,6 +1,6 @@
 return {
   {
-    [1] = 'Olical/conjure',
+    'Olical/conjure',
     ft = { 'clojure', 'fennel', 'lua', 'Racket', 'Scheme' }, -- etc
     init = function()
       vim.g['conjure#extract#tree_sitter#enabled'] = true
@@ -15,10 +15,10 @@ return {
     end,
 
     -- Optional cmp-conjure integration
-    dependencies = { 'PaterJason/cmp-conjure', 'Grazfather/sexp.nvim', 'tpope/vim-repeat' },
+    dependencies = { { 'PaterJason/cmp-conjure' }, { 'Grazfather/sexp.nvim' }, { 'tpope/vim-repeat' } },
   },
   {
-    [1] = 'PaterJason/cmp-conjure',
+    'PaterJason/cmp-conjure',
     config = function()
       local cmp = require 'cmp'
       local config = cmp.get_config()
@@ -27,7 +27,7 @@ return {
     end,
   },
   {
-    [1] = 'Grazfather/sexp.nvim',
+    'Grazfather/sexp.nvim',
     config = true,
   },
 }

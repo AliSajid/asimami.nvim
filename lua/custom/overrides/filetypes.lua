@@ -25,4 +25,9 @@ return {
     extension = '.[Rr]adian_profile',
     filetype = 'r',
   },
+  {
+    -- R package DESCRIPTION files use the Debian Control File format
+    pattern = 'DESCRIPTION',
+    filetype = 'dcf',
+  },
 }

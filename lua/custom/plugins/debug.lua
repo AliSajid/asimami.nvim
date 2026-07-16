@@ -7,7 +7,7 @@
 -- kickstart.nvim and not kitchen-sink.nvim ;)
 
 return {
-  [1] = 'mfussenegger/nvim-dap',
+  'mfussenegger/nvim-dap',
 
   dependencies = {
     -- Creates a beautiful debugger UI
@@ -29,43 +29,43 @@ return {
     return {
       -- Basic debugging keymaps, feel free to change to your liking!
       {
-        [1] = '<F5>',
-        [2] = function()
+        '<F5>',
+        function()
           dap.continue()
         end,
         desc = 'Debug: Start/Continue',
       },
       {
-        [1] = '<F6>',
-        [2] = function()
+        '<F6>',
+        function()
           dap.step_over()
         end,
         desc = 'Debug: Step Over',
       },
       {
-        [1] = '<F7>',
-        [2] = function()
+        '<F7>',
+        function()
           dap.step_into()
         end,
         desc = 'Debug: Step Into',
       },
       {
-        [1] = '<F8>',
-        [2] = function()
+        '<F8>',
+        function()
           dap.step_out()
         end,
         desc = 'Debug: Step Out',
       },
       {
-        [1] = '<leader>b',
-        [2] = function()
+        '<leader>b',
+        function()
           dap.toggle_breakpoint()
         end,
         desc = 'Debug: Toggle Breakpoint',
       },
       {
-        [1] = '<leader>B',
-        [2] = function()
+        '<leader>B',
+        function()
           dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
         end,
         desc = 'Debug: Set Breakpoint',
@@ -73,8 +73,8 @@ return {
 
       -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
       {
-        [1] = '<F7>',
-        [2] = function()
+        '<F7>',
+        function()
           dapui.toggle()
         end,
         desc = 'Debug: See last session result.',

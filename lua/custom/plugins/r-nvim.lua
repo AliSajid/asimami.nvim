@@ -1,5 +1,5 @@
 return {
-  [1] = 'R-nvim/R.nvim',
+  'R-nvim/R.nvim',
   lazy = false,
   config = function()
     -- Create a table with the options to be passed to setup()
