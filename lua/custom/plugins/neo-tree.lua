@@ -11,7 +11,7 @@ return {
   },
   cmd = 'Neotree',
   keys = {
-    { [1] = '\\\\', [2] = ':Neotree float reveal<CR>', desc = 'NeoTree reveal' },
+    { '\\\\', ':Neotree float reveal<CR>', desc = 'NeoTree reveal' },
   },
   opts = {
     close_if_last_window = true,
