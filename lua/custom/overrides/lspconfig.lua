@@ -182,9 +182,6 @@ local M = {
     gopls = {},
     vale_ls = {},
     taplo = {},
-
-    -- R language server
-    r_language_server = {},
   },
 }
 
