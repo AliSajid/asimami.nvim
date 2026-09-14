@@ -112,13 +112,13 @@ return {
         on_filetype = function()
           -- Execute the current line and move to the next line.
           vim.keymap.set('n', '<Enter>', '<Plug>RDSendLine', {
-            buffer = true,
+            buf = 0,
             desc = 'R: send line',
           })
 
           -- Execute the visual selection.
           vim.keymap.set('v', '<Enter>', '<Plug>RSendSelection', {
-            buffer = true,
+            buf = 0,
             desc = 'R: send selection',
           })
 
@@ -127,7 +127,7 @@ return {
           -- This intentionally replaces R.nvim's default <localleader>rd
           -- mapping, which normally means RSetwd.
           vim.keymap.set('n', '<localleader>rd', '<Plug>Roxygenize', {
-            buffer = true,
+            buf = 0,
             desc = 'R: add Roxygen skeleton',
           })
         end,
