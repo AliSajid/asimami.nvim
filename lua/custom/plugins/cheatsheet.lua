@@ -1,9 +1,7 @@
 return {
-  'doctorfree/cheatsheet.nvim',
-  event = 'VeryLazy',
-  dependencies = {
-    { 'nvim-telescope/telescope.nvim' },
-    { 'nvim-lua/popup.nvim' },
+  specs = {
+    { src = 'https://github.com/doctorfree/cheatsheet.nvim' },
+    { src = 'https://github.com/nvim-lua/popup.nvim' },
   },
   config = function()
     local ctactions = require 'cheatsheet.telescope.actions'
@@ -13,12 +11,7 @@ return {
         disabled = { 'nerd-fonts' },
       },
       bundled_plugin_cheatsheets = {
-        enabled = {
-          'auto-session',
-          'goto-preview',
-          'octo.nvim',
-          'telescope.nvim',
-        },
+        enabled = { 'auto-session', 'goto-preview', 'octo.nvim', 'telescope.nvim' },
         disabled = { 'gitsigns', 'nerd-fonts', 'vim-easy-align', 'vim-sandwich' },
       },
       include_only_installed_plugins = true,

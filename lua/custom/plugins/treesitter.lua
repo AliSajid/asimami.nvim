@@ -1,10 +1,8 @@
 return {
-  'nvim-treesitter/nvim-treesitter',
-  branch = 'main',
-  event = { 'BufReadPre', 'BufNewFile' },
+  specs = {
+    { src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
+  },
   config = function()
-    -- Register the custom `dcf` (Debian Control File) grammar, used for
-    -- R package DESCRIPTION files (which use the same key: value format).
     require('nvim-treesitter.parsers').dcf = {
       install_info = {
         url = '~/experiments/tree-sitter-dcf',

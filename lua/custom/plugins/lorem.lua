@@ -1,5 +1,7 @@
 return {
-  'derektata/lorem.nvim',
+  specs = {
+    { src = 'https://github.com/derektata/lorem.nvim' },
+  },
   config = function()
     require('lorem').opts {
       sentence_length = 'medium',

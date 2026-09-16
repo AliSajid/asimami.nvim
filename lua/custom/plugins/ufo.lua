@@ -1,9 +1,10 @@
 return {
-  {
-    'kevinhwang91/nvim-ufo',
-    dependencies = 'kevinhwang91/promise-async',
-    lazy = false,
-    opts = {
+  specs = {
+    { src = 'https://github.com/kevinhwang91/nvim-ufo' },
+    { src = 'https://github.com/kevinhwang91/promise-async' },
+  },
+  config = function()
+    require('ufo').setup {
       open_fold_hl_timeout = 400,
       provider_selector = function()
         return { 'treesitter', 'indent' }
@@ -20,6 +21,6 @@ return {
           jumpBot = ']',
         },
       },
-    },
-  },
+    }
+  end,
 }

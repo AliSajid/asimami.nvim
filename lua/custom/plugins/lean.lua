@@ -1,17 +1,11 @@
 return {
-  'Julian/lean.nvim',
-  event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
-
-  dependencies = {
-    'neovim/nvim-lspconfig',
-    'hrsh7th/nvim-cmp',
-    'nvim-telescope/telescope.nvim', -- for 2 Lean-specific pickers
-    -- 'andymass/vim-matchup',          -- for enhanced % motion behavior
-    -- 'andrewradev/switch.vim',        -- for switch support
-    -- 'tomtom/tcomment_vim',           -- for commenting
+  specs = {
+    { src = 'https://github.com/Julian/lean.nvim' },
+    { src = 'https://github.com/neovim/nvim-lspconfig' },
+    { src = 'https://github.com/hrsh7th/nvim-cmp' },
+    { src = 'https://github.com/nvim-telescope/telescope.nvim' },
   },
-
-  opts = { -- see below for full configuration options
-    mappings = true,
-  }
+  config = function()
+    vim.g.lean_config = { mappings = true }
+  end,
 }

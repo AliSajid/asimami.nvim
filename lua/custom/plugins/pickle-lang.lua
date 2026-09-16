@@ -1,26 +1,9 @@
 return {
-  'apple/pkl-neovim',
-  lazy = true,
-  ft = 'pkl',
-  dependencies = {
-    {
-      'nvim-treesitter/nvim-treesitter',
-    },
-    {
-      'L3MON4D3/LuaSnip',
-    },
+  specs = {
+    { src = 'https://github.com/apple/pkl-neovim' },
   },
-  build = function()
-    require('pkl-neovim').init()
-
-    vim.cmd 'TSInstall pkl'
-  end,
   config = function()
     require('luasnip.loaders.from_snipmate').lazy_load()
-
-    -- Configure pkl-lsp
-    vim.g.pkl_neovim = {
-      start_command = { 'pkl-lsp' },
-    }
+    vim.g.pkl_neovim = { start_command = { 'pkl-lsp' } }
   end,
 }

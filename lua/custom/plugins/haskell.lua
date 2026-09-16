@@ -1,5 +1,7 @@
 return {
-  'mrcjkb/haskell-tools.nvim',
-  version = '^4', -- Recommended
-  lazy = false, -- This plugin is already lazy
+  specs = {
+    { src = 'https://github.com/mrcjkb/haskell-tools.nvim', version = 'v4.4.3' },
+    { src = 'https://github.com/nvim-telescope/telescope.nvim' },
+    { src = 'https://github.com/nvim-lua/plenary.nvim' },
+  },
 }

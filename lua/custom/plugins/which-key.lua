@@ -1,7 +1,7 @@
 return {
-  -- Useful plugin to show you pending keybinds.
-  'folke/which-key.nvim',
-  event = 'VimEnter',
+  specs = {
+    { src = 'https://github.com/folke/which-key.nvim' },
+  },
   config = function()
     require('which-key').setup {
       spec = {
