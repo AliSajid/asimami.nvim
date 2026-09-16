@@ -8,6 +8,10 @@ return {
       local root_pattern = require('lspconfig').util.root_pattern
       return root_pattern('.ltex', '.hg', '.git')(file_path) or vim.fn.fnamemodify(file_path, ':p:h')
     end
-    pcall(require('ltex_extra').setup, { path = find_root() })
+    pcall(require('ltex_extra').setup, {
+      path = find_root(),
+      init_check = false,
+      server_start = false,
+    })
   end,
 }
