@@ -1,7 +1,7 @@
 # asimami.nvim
 
 My personal Neovim configuration, built on top of [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
-and managed with [lazy.nvim](https://github.com/folke/lazy.nvim). It started as the kickstart.nvim
+and managed with native `vim.pack` (Neovim 0.12+). It started as the kickstart.nvim
 single-file starter but has since grown into a full day-to-day setup: LSP, completion,
 formatting, linting, and debugging are all wired up out of the box, alongside first-class
 support for a fairly wide range of languages.
@@ -43,15 +43,15 @@ git clone https://github.com/AliSajid/asimami.nvim.git ~/.config/nvim-kickstart
 alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
 ```
 
-On first launch, `lazy.nvim` bootstraps itself and installs every plugin pinned in
-`lazy-lock.json`. Mason then installs the LSP servers and CLI tools on top of that —
+On first launch, `vim.pack.add()` installs every plugin pinned in
+`nvim-pack-lock.json`. Mason then installs the LSP servers and CLI tools on top of that —
 give it a minute before everything (LSP diagnostics, formatting, etc.) is fully live.
 
 ## Structure
 
 - `init.lua` — bootstrap only: leader keys, loads `custom.options`/`custom.mappings`,
-  registers custom filetypes, bootstraps lazy.nvim, sets the colorscheme, loads
-  autocommands. It intentionally contains no plugin specs of its own.
+  registers custom filetypes, installs plugins via `vim.pack.add()`, sets the colorscheme,
+  runs plugin configs, and loads autocommands. It intentionally contains no plugin specs of its own.
 - `lua/custom/options.lua` — Neovim options
 - `lua/custom/mappings.lua` — keymaps that aren't owned by a specific plugin
 - `lua/custom/autocommands.lua` — autocommands
@@ -63,14 +63,13 @@ give it a minute before everything (LSP diagnostics, formatting, etc.) is fully 
 - `lua/custom/overrides/lspconfig.lua` — the LSP server table (`servers`) and the list of
   additional Mason-installed CLI tools (`tools`), consumed by `lua/custom/plugins/lspconfig.lua`
 - `lua/custom/plugins/*.lua` — plugin specs, one file per plugin (or per small group of
-  closely related plugins); every file here is auto-discovered and loaded by lazy.nvim's
-  `{ import = 'custom.plugins' }`
+  closely related plugins); every file here is auto-discovered and loaded by the config runner in `lua/custom/plugins/init.lua`
 - `lua/custom/themes/*.lua` — colorscheme, same auto-import mechanism as above
 - `lua/kickstart/health.lua` — backs `:checkhealth kickstart`
 
 ## Key features
 
-- **Plugin manager**: [lazy.nvim](https://github.com/folke/lazy.nvim); see `lazy-lock.json`
+- **Plugin manager**: native `vim.pack` (Neovim 0.12+); see `nvim-pack-lock.json`
   for exact pinned versions
 - **LSP**: `mason.nvim` + `mason-lspconfig.nvim` + `mason-tool-installer.nvim`, with servers
   and tools tracked centrally in `lua/custom/overrides/lspconfig.lua`
