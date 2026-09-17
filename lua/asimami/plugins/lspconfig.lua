@@ -64,7 +64,7 @@ return {
       end,
     })
 
-    local lspoverrides = require 'custom.overrides.lspconfig'
+    local lspoverrides = require 'asimami.overrides.lspconfig'
     local servers = lspoverrides.servers
 
     require('mason').setup()

@@ -1,5 +1,5 @@
 local map = vim.keymap.set
-local utils = require 'custom.utils'
+local utils = require 'asimami.utils'
 
 -- No need to use shift key for command mode
 map({ 'n', 'v' }, ';', ':', { nowait = true })

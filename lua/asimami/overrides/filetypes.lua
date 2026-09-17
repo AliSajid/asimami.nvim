@@ -28,6 +28,6 @@ return {
   {
     -- R package DESCRIPTION files use the Debian Control File format
     pattern = 'DESCRIPTION',
-    filetype = 'dcf',
+    filetype = 'debcontrol',
   },
 }

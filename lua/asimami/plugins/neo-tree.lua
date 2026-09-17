@@ -22,7 +22,7 @@ return {
             ['\\\\'] = 'close_window',
             ['<TAB>'] = 'toggle_node',
             ['Y'] = function(state)
-              require('custom.telescope-file-copy').copy_filename(state)
+              require('asimami.telescope-file-copy').copy_filename(state)
             end,
           },
         },

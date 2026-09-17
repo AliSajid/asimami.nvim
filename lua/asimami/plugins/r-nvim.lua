@@ -16,7 +16,9 @@ return {
       objbr_mappings = {
         c = 'class',
         ['<localleader>gg'] = 'head({object}, n = 15)',
-        v = function() require('r.browser').toggle_view() end,
+        v = function()
+          require('r.browser').toggle_view()
+        end,
       },
       disable_cmds = { 'RCustomStart', 'RSaveClose' },
       hook = {

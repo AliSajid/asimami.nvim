@@ -18,6 +18,6 @@ return {
     table.insert(config.sources, { name = 'conjure' })
     cmp.setup(config)
 
-    require('sexp').setup({})
+    require('sexp').setup {}
   end,
 }

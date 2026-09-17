@@ -16,12 +16,12 @@ to how I work. Feel free to borrow from it, but expect opinions.
 - [ripgrep](https://github.com/BurntSushi/ripgrep) and, optionally,
   [fd](https://github.com/sharkdp/fd)
 - A [Nerd Font](https://www.nerdfonts.com/) (icons are enabled by default via
-  `vim.g.have_nerd_font` in `lua/custom/options.lua`)
+  `vim.g.have_nerd_font` in `lua/asimami/options.lua`)
 - A clipboard tool if you're not on macOS (xclip/xsel/win32yank)
 
 Most CLI tools beyond that — formatters, linters, and DAP adapters — are installed
 automatically by `mason-tool-installer.nvim` on first launch; the full list lives in
-`lua/custom/overrides/lspconfig.lua` (`tools`). A few language-specific extras aren't
+`lua/asimami/overrides/lspconfig.lua` (`tools`). A few language-specific extras aren't
 managed by Mason and need to be installed separately if you use them:
 
 - **R**: R itself, plus [radian](https://github.com/randy3k/radian) (used as the REPL)
@@ -49,22 +49,22 @@ give it a minute before everything (LSP diagnostics, formatting, etc.) is fully 
 
 ## Structure
 
-- `init.lua` — bootstrap only: leader keys, loads `custom.options`/`custom.mappings`,
-  registers custom filetypes, installs plugins via `vim.pack.add()`, sets the colorscheme,
+- `init.lua` — bootstrap only: leader keys, loads `asimami.options`/`asimami.mappings`,
+  registers asimami filetypes, installs plugins via `vim.pack.add()`, sets the colorscheme,
   runs plugin configs, and loads autocommands. It intentionally contains no plugin specs of its own.
-- `lua/custom/options.lua` — Neovim options
-- `lua/custom/mappings.lua` — keymaps that aren't owned by a specific plugin
-- `lua/custom/autocommands.lua` — autocommands
-- `lua/custom/utils.lua` — small helper functions used by mappings/plugins
-- `lua/custom/filetypes.lua` + `lua/custom/overrides/filetypes.lua` — a small engine
+- `lua/asimami/options.lua` — Neovim options
+- `lua/asimami/mappings.lua` — keymaps that aren't owned by a specific plugin
+- `lua/asimami/autocommands.lua` — autocommands
+- `lua/asimami/utils.lua` — small helper functions used by mappings/plugins
+- `lua/asimami/filetypes.lua` + `lua/asimami/overrides/filetypes.lua` — a small engine
   (`filetypes.lua`) plus the data it runs (`overrides/filetypes.lua`) for detecting
   filetypes Neovim doesn't know about out of the box, by extension (`*.ext`) or by exact
   filename (e.g. `DESCRIPTION`)
-- `lua/custom/overrides/lspconfig.lua` — the LSP server table (`servers`) and the list of
-  additional Mason-installed CLI tools (`tools`), consumed by `lua/custom/plugins/lspconfig.lua`
-- `lua/custom/plugins/*.lua` — plugin specs, one file per plugin (or per small group of
-  closely related plugins); every file here is auto-discovered and loaded by the config runner in `lua/custom/plugins/init.lua`
-- `lua/custom/themes/*.lua` — colorscheme, same auto-import mechanism as above
+- `lua/asimami/overrides/lspconfig.lua` — the LSP server table (`servers`) and the list of
+  additional Mason-installed CLI tools (`tools`), consumed by `lua/asimami/plugins/lspconfig.lua`
+- `lua/asimami/plugins/*.lua` — plugin specs, one file per plugin (or per small group of
+  closely related plugins); every file here is auto-discovered and loaded by the config runner in `lua/asimami/plugins/init.lua`
+- `lua/asimami/themes/*.lua` — colorscheme, same auto-import mechanism as above
 - `lua/kickstart/health.lua` — backs `:checkhealth kickstart`
 
 ## Key features
@@ -72,7 +72,7 @@ give it a minute before everything (LSP diagnostics, formatting, etc.) is fully 
 - **Plugin manager**: native `vim.pack` (Neovim 0.12+); see `nvim-pack-lock.json`
   for exact pinned versions
 - **LSP**: `mason.nvim` + `mason-lspconfig.nvim` + `mason-tool-installer.nvim`, with servers
-  and tools tracked centrally in `lua/custom/overrides/lspconfig.lua`
+  and tools tracked centrally in `lua/asimami/overrides/lspconfig.lua`
 - **Completion**: `nvim-cmp`, with LuaSnip + friendly-snippets, and sources for the LSP,
   buffer, path, R, dotenv, and emoji
 - **Fuzzy finding**: Telescope (`<leader>s...`) and `mini.pick` (`<leader>p...`) side by side
@@ -85,19 +85,19 @@ give it a minute before everything (LSP diagnostics, formatting, etc.) is fully 
 - **UI**: Catppuccin (frappé), `which-key.nvim`, `trouble.nvim`, the `mini.nvim` ecosystem
   (`ai`, `surround`, `statusline`, `indentscope`, `comment`, `icons`, `extra`, `pick`),
   `barbecue.nvim` breadcrumbs, `nvim-ufo` folding, indent guides
-- **Treesitter**: `nvim-treesitter`, including a custom `dcf` (Debian Control File) grammar
-  registered in `lua/custom/plugins/treesitter.lua`, used for highlighting R package
+- **Treesitter**: `nvim-treesitter`, including a asimami `dcf` (Debian Control File) grammar
+  registered in `lua/asimami/plugins/treesitter.lua`, used for highlighting R package
   `DESCRIPTION` files
 
 ## Language support
 
 Beyond the usual web/systems LSP coverage (Go, Rust, Python, TypeScript/JavaScript, the
 Svelte/Tailwind/Prisma/ESLint web stack, Docker, Nix, Terraform, SQL, schema-aware
-JSON/YAML, DBML, Bash — see the `servers` table in `lua/custom/overrides/lspconfig.lua`
+JSON/YAML, DBML, Bash — see the `servers` table in `lua/asimami/overrides/lspconfig.lua`
 for the full list), a few languages get dedicated plugin support:
 
 - **R** — `R.nvim` (radian REPL, roxygen skeletons, object browser), `RFormat` on save for
-  `.R`/`.Rmd`/`.qmd` files, and package `DESCRIPTION` files highlighted via the custom `dcf`
+  `.R`/`.Rmd`/`.qmd` files, and package `DESCRIPTION` files highlighted via the asimami `dcf`
   treesitter grammar
 - **LaTeX** — `vimtex`, plus `ltex_plus`/`ltex_extra.nvim` for grammar and prose checking
   (also covers Markdown and plain text)

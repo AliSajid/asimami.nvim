@@ -15,7 +15,7 @@ return {
           return
         end
         if vim.b[args.buf].autoimport == true then
-          local ok, utils = pcall(require, 'custom.utils')
+          local ok, utils = pcall(require, 'asimami.utils')
           if ok and utils.organizeImports then
             utils.organizeImports(args.buf)
           end
