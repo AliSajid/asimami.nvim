@@ -20,6 +20,9 @@ return {
           require('r.browser').toggle_view()
         end,
       },
+      view_df = {
+        open_app = 'terminal:vd',
+      },
       disable_cmds = { 'RCustomStart', 'RSaveClose' },
       hook = {
         on_filetype = function()
