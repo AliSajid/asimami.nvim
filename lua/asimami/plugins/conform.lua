@@ -45,7 +45,7 @@ return {
       formatters_by_ft = {
         lua = { 'stylua' },
         clojure = { 'cljfmt' },
-        python = { 'isort', 'black' },
+        python = { 'isort', 'blackd-client' },
         javascript = { 'prettierd' },
         typescript = { 'prettierd' },
         sql = { 'sleek', 'injected' },
